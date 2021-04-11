@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.mainContainer {
+    /* position: relative; */
+    min-height: calc(100vh - 180px);
+    /* border: 6px solid purple; */
+}
+.signinContainer {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    width: 400px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: #EBEBEB;
+}
+.loginContainer {
+    background: #AAA5A5;
+    width: 100%;
+    height: 39px;
+    border-radius: 10px 10px 0 0 ;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 18px;
+}
+.usernameContainer, .passwordContainer, .singinContainer {
+    margin: auto;
+    border: 1px solid black;
+    margin-top: 40px;
+    width: 300px;
+    height: 39px;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #C4C0C0;
+    border-radius: 4px;
+}
+.passwordContainer {
+    margin-top: 10px;
+}
+.profileLogo, .passLogo {
+    height: 37px;
+    width: 40px;
+    border-right: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #E4E4E4;
+    border-radius: 4px 0 0 4px;
+}
+.userInp, .passInp {
+    width: 210px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    outline: none;
+
+}
+.virKey {
+    height: 37px;
+    width: 40px;
+    border-left: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #E4E4E4;
+    border-radius: 0 4px 4px 0;
+}
+.signinRow {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    
+}
+.userSigninSubmit {
+    width: 300px;
+    height: 39px;
+    color: #fff;
+    background-color: #317FC4;
+    border: none;
+    border-radius: 2px;
+    /* outline: none; */
+}
