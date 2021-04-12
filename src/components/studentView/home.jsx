@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import Header from '../Header';
-import StuSignin from '../studentSignIn'
+import React, { Component } from 'react';
+import Header from './Header';
+import StuSignin from './studentSignIn';
 
 class home extends Component {
     state = {  }

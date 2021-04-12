@@ -1,7 +1,9 @@
 import React from 'react';
 import './Header.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import profile from'./images/istockphoto-1006790052-612x612.jpg'
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+// import profile from'./images/istockphoto-1006790052-612x612.jpg'
+import profile from '../../images/istockphoto-1006790052-612x612.jpg'
 
 function Header() {
   return (

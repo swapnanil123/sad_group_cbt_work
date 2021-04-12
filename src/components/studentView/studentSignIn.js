@@ -1,6 +1,6 @@
 import React from 'react';
 import './studentSignIn.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import PersonIcon from '@material-ui/icons/Person';
 import KeyboardOutlinedIcon from '@material-ui/icons/KeyboardOutlined';
 import LockIcon from '@material-ui/icons/Lock';
