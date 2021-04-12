@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Header from './Header';
 // import StuSignin from './studentSignIn';
-// import ExamDetails from './examDetails';
+import ExamDetails from './examDetails';
 
 class home extends Component {
     state = {  }
@@ -9,8 +9,8 @@ class home extends Component {
         return ( 
             <div className="home">
                 {/* <Header />
-                <StuSignin />
-                <ExamDetails/> */}
+                <StuSignin /> */}
+                <ExamDetails/>
             </div>
          );
     }

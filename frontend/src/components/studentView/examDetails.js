@@ -10,7 +10,7 @@ function examDetails(){
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="examDetailsForm col-md-6">
-                            <h1 className="text-center"><b><u>Exam Details</u></b></h1>
+                            <h1 className="heading text-center"><b><u>Exam Details</u></b></h1>
                             
                             <label className="label col-md-6 control-label"><b>Title:</b></label>
                             <div className="col-md-12">

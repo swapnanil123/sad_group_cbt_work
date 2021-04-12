@@ -3,7 +3,8 @@
     padding: 0px;
 }
 body{
-    background-image: url(../../images/examDetailsBg.jpg);
+    /* background-image: url(../../images/examDetailsBg.jpg); */
+    background-color: #E9E9E9 ;
     background-attachment: fixed;
     background-size: cover;
     font-family: anton;
@@ -14,8 +15,9 @@ body{
     box-shadow: 2px 2px 3px 3px #000000;
     margin-top: 20px;
     margin-bottom: 20px;
+    width: ;
 }
-h1{
+.heading{
     font-size: 40px;
     color: black;
     margin-top: 10px;
