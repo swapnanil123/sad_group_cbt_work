@@ -2,6 +2,7 @@ import React from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../studentView/examDetails.css'
 
+
 function examDetails(){
     return(
         <React.Fragment>
@@ -47,9 +48,6 @@ function examDetails(){
 
                         </div>
                         <div class="col-md-3"></div>
-                    </div>
-                    <div>
-                        <h1>hi</h1>
                     </div>
                 </div>
 
