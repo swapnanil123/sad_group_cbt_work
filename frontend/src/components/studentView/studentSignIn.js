@@ -20,7 +20,7 @@ function studentSingin() {
                         <div className=" row usernameContainer">
                             <div className="profileLogo"> <PersonIcon /> </div>
                             <div className=" usernameInp">
-                                <input type="text" className="userInp"></input>
+                                <input type="text" className="userInp" />
                             </div>
                             <div className=" virKey"> <KeyboardOutlinedIcon /> </div>
                         </div>
@@ -30,14 +30,14 @@ function studentSingin() {
                         <div className=" row passwordContainer">
                             <div className="passLogo"> <LockIcon /> </div>
                             <div className=" usernameInp">
-                                <input type="password" className="passInp"></input>
+                                <input type="password" className="passInp" />
                             </div>
                             <div className=" virKey"> <KeyboardOutlinedIcon /> </div>
                         </div>
                     </div>
 
                     <div className="signinRow">
-                        <input type="submit" className="userSigninSubmit" value="Sign In" ></input>
+                        <input type="submit" className="userSigninSubmit" value="Sign In" />
                     </div>
                 </div>
             </div> 
