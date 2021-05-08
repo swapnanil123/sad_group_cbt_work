@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap');
+body {
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.headerPart {
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    border: 1px solid transparent;
+    box-shadow: 0 0 8px 0 #A9A7A7;
+}
+
+.headArea {
+    border: 1px solid black;
+    height: 120px;
+    background-color: #2D2E2F;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+.studentInfo {
+    background-color: #fff;
+    height: 118px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+.instructionArea {
+    padding: 0 15px;
+}
+.sysName {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    margin-top: -40px;
+    padding: 0;
+}
+.numberAndName {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #F1EE00;
+    font-size: 22px;
+
+}
+.SysNo {
+    font-size: 28px;
+}
+
+.maincontainer {
+    /* border: 1px solid black; */
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    /* box-shadow: 8px 8px 8px 8px #b6b5b5; */
+}
+.userInfo {
+    border: 1px solid #979798;
+    width: 300px;
+    height: 40px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* box-shadow: 0 0 10px 5px #c4c4c4; */
+}
+.userInp {
+    width: 240px;
+    border: none;
+}
+.submitArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.subBtn {
+    border-radius: 18px;
+    background-color: #2D2E2F;
+    color: #F1EE00;
+}
+.subBtn:hover {
+    color: #fff;
+}

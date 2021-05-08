@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <link rel="stylesheet" href="StudentLogin.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Student Login</title>
+</head>
+<body>
+    <div class="container-fluid headerPart">
+        <span>Exam Hut</span>
+    </div>
+
+
+    <div class="container-fluid headArea">
+        <div class="instructionArea container-fluid">
+            <div class="sysName">
+                <span>System No. :</span>
+                <span>Candidate Name :</span>
+            </div>
+            <div class="numberAndName container-fluid">
+                <span class="SysNo">C025</span>
+                <span>Swapnanil Paul</span>
+            </div>
+        </div>
+        <div class="studentInfo container">
+            <img src="./../biologo.jpg" alt="dp" width="80px" height="80px">
+        </div>
+    </div>
+
+
+    <div class="container maincontainer">
+       <form action="#" autocomplete="off">
+           <div class="form-group userInfo">
+                <i class="fa fa-user"></i>
+               <input type="text" class="shadow-none form-control userInp" name="username" id="user" placeholder="Username">
+           </div>
+           <div class="form-group userInfo">
+                <i class="fa fa-lock"></i>
+               <input type="password" class="shadow-none form-control userInp" name="password" id="pass" placeholder="Password">
+           </div>
+           <div class="form-group submitArea">
+                <input type="submit" class="form-control subBtn btn outline-none shadow-none" name="submit" id="submitBtn" value="Sign up">
+           </div>
+       </form>
+    </div>
+</body>
+</html>

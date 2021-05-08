@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="header.css"> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap');
+
+        .headerPart {
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Lora', serif;
+            font-size: 20px;
+            border: 1px solid transparent;
+            box-shadow: 0 0 8px 0 #A9A7A7;
+        }
+
+
+        .sideArea {
+            border-left: 2px solid black;
+            position: absolute;
+            right: 0;
+            top: 45px;
+            height: calc(100% - 45px);
+            width: 260px;
+            padding: 0;
+        }
+        .profilePic {
+            /* border: 1px solid rgb(163, 21, 21); */
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            font-size: 19px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .dp {
+            border: 1px solid green;
+        }
+        .subjectNameArea {
+            border-top: 1.5px solid black;
+            border-bottom: 1.5px solid black;
+            font-family:sans-serif;
+            font-size: 16px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 5px;
+            background-color: #2D2E2F;
+            color: #F1EE00;
+            /* box-shadow: 8px 8px 8px 8px #b6b5b5; */
+        }
+        .submitArea {
+            border-top: 1px solid black;
+            height: 60px;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .submitBtn {
+            width: 100px;
+            border-radius: 5px;
+            cursor: not-allowed;
+        }
+        .questionInst {
+            border-bottom: 1px solid black;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* align-items: center; */
+        }
+        .instWrapper {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 5px;
+        }
+        .questionNumber {
+            /* border: 1px solid black; */
+            height: calc(100% - (45px + 140px + 60px + 100px + 24px));
+            margin-top: 2px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            /* display: flex; */
+            padding: 10px 10px 0 10px;
+        }
+
+        .numberArea {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+        .numbers, .instnumbers, .instnumbers1 {
+            border: 1px solid black;
+            border-radius: 50%;
+            width: 55px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: px;
+            cursor: pointer;
+        }
+        .instnumbers {
+            background-color: #03D122;
+            border: 1px solid #03D122;
+            color: #fff;
+        }
+        .instnumbers1 {
+            background-color: #DD0000;
+            border: 1px solid #DD0000;
+            color: #fff;
+        }
+        .numberWraper {
+            margin-bottom: 10px;
+        }
+        .questionNumHead {
+            /* border: 1px solid black; */
+            height: 24px;
+            display: flex;
+            align-items: center;
+            background-color: #E1E1E1;
+            font-size: 14px;
+            font-family: sans-serif;
+            color: red;
+            padding: 0 5px;
+        }
+
+        .questionArea {
+            /* border: 1px solid black; */
+            position: absolute;
+            left: 0;
+            top: 45px;
+            height: calc(100% - 45px);
+            width: calc(100% - 260px);
+            padding: 0;
+        }
+        .headContent {
+            font-family: lato;
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2D2E2F;
+            color: #F1EE00;
+            padding: 2px 10px;
+        }
+        .controlBtns {
+            border-top: 1px solid black;
+            height: 60px;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .conrtroler {
+            width: 150px;
+            border-radius: 2px;
+        }
+        .typeOfQuestion {
+            /* border: 1px solid black; */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: #D5D5D5;
+            padding-left : 10px;
+            color: red;
+            font-family: 'roboto';
+            font-size: 17px;
+        }
+
+        .questions {
+            height: calc(100% - (45px + 60px + 20px));
+            overflow-y: scroll;
+            padding-top: 30px;
+            padding-left: 20px;
+            font-family: 'Roboto Slab';
+            font-size: 18px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;   
+        }
+
+
+        ::-webkit-scrollbar {
+            width: 9px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: -moz-none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid headerPart">
+        <span>Exam Hut</span>
+    </div>
+
+    <div class="container sideArea">
+        <div class="profilePic container-fluid">
+            <img src="./../biologo.jpg" alt="dp" width="90px" height="90px" class="dp">
+            <span>Swapnanil Paul</span>
+        </div>
+        <div class="subjectNameArea container-fluid">
+            <span>Data Structure</span>
+        </div>
+        <div class="container-fluid questionInst">
+            <div class="instWrapper">
+                <div class="instnumbers">
+                    <span>0</span>
+                </div> &nbsp;
+                <span> Answered</span>
+            </div>
+            <div class="instWrapper">
+                <div class="instnumbers1">
+                    <span>0</span>
+                </div> &nbsp;
+                <span> Not Answered</span>
+            </div>
+        </div>
+        <div class="questionNumHead container-fluid">
+            <span>Choose Question Here</span>
+        </div>
+        <div class="questionNumber">
+            <div class="row container numberWraper">
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        1
+                    </div>
+                </div>
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        2
+                    </div>
+                </div>
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        3
+                    </div>
+                </div>
+            </div> 
+            
+            <div class="row container numberWraper">
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        4
+                    </div>
+                </div>
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        5
+                    </div>
+                </div>
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        6
+                    </div>
+                </div>
+            </div>
+            <div class="row container numberWraper">
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        7
+                    </div>
+                </div>
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        8
+                    </div>
+                </div>
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        9
+                    </div>
+                </div>
+            </div>
+            <div class="row container numberWraper">
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        10
+                    </div>
+                </div>
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        11
+                    </div>
+                </div>
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        12
+                    </div>
+                </div>
+            </div>
+            <div class="row container numberWraper">
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        13
+                    </div>
+                </div>
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        14
+                    </div>
+                </div>
+                <div class="col-4 numberArea">
+                    <div class="numbers">
+                        15
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="submitArea container-fluid">
+            <input type="submit" class="btn btn-primary shadow-none submitBtn" id="submit" value="Submit" disabled>
+        </div>
+    </div>
+
+
+
+    <div class="container questionArea">
+        <div class="headContent container-fluid">
+            <span>Computer Science</span>
+            <span>Time Left : 00:00</span>
+        </div>
+
+        <div class="typeOfQuestion container-fluid">
+            Question Type :Multiple Choice Question
+        </div>
+
+        <!-- question start -->
+
+        <div class="questions container-fluid">
+            <div class="qst">
+                <p>1. What is your name?</p>
+            </div>
+            <div class="options">
+                <form action="#">
+                    <div>
+                        <input type="radio" name="option" id="optionOne" class="fromWrapper"> 
+                        <label for="optionOne">Swapanil Paul</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="option" id="optionTwo" class="fromWrapper"> 
+                        <label for="optionTwo">Akash Biswas</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="option" id="optionThree" class="fromWrapper"> 
+                        <label for="optionThree">Debajyati Pramanic</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="option" id="optionFour" class="fromWrapper"> 
+                        <label for="optionFour">Anupma Majunder</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- question end -->
+
+        <div class="container-fluid controlBtns">
+            <input type="submit" class="btn btn-primary shadow-none conrtroler" id="clearResponse" value="Clear Respone">
+            <input type="submit" class="btn btn-primary shadow-none conrtroler" id="ansSubmit" value="Save & Next">
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+
+    // var pass = document.getElementsByName('option')
+
+   
+    $('#clearResponse').on("click", () => {
+        console.log("Working Properly")
+        $('input:radio[name=option]:checked').prop('checked', false);
+    })
+</script>
