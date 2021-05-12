@@ -20,7 +20,7 @@
                 <div class="container">
                     <div class="form">
                         <h2>Admin Portal</h2>
-                        <form action="check.php" method="post">
+                        <form action="check.php" method="post" autocomplete="off">
                             <?php if (isset($_GET['error'])){ ?>
                             <p class="error"><?php echo $_GET['error']; ?></p>
                             <?php } ?>
