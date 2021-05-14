@@ -94,7 +94,7 @@ $(document).ready(function() {
                     console.log(res[0], res[1], res[2], res[3])
 
                     if (res[0] == 'success') {
-                        window.location.href = "instructionPage.php?"+ "/" +res[1]+ "/" +res[2]+ "/" +res[3];
+                        window.location.href = "instructionPage.php?"+ "/" + res[3];
                         // alert(data)
                     } else {
                         $('#massage').text(data);
