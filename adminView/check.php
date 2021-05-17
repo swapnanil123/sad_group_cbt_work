@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "db_conn.php";
+include_once("db_conn.php");
 if (isset($_POST['username']) && isset($_POST['password'])){
     function validate($data){
         $data = trim($data);
