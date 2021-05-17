@@ -57,6 +57,18 @@ if ( $allQuestions > 0) {
                     $('input:radio[name=option_<?php echo $result['id'] ?>]:checked').prop('checked', false);
                 })
 
+
+                questions = $("#questionsText_<?php echo $result['id'] ?>").text()
+                
+
+                firstLatter = questions.charAt(1)
+                capFirstLAtter = firstLatter.toUpperCase()
+                console.log("Question => => =>"+firstLatter)
+
+                final_questionName = questions.replace(firstLatter, capFirstLAtter)
+
+                $("#questionsText_<?php echo $result['id'] ?>").text(final_questionName)
+
             </script>
 
             
