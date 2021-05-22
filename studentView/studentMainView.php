@@ -22,7 +22,7 @@
     <div class="container-fluid questionArea" >
         <div class="headContent container-fluid">
             <span id="deptName">Computer Science</span>
-            <span>Time Left : 00:00</span>
+            <span>Time Left : <span id="timer" ></span> </span>
         </div>
 
         <div class="typeOfQuestion container-fluid">
@@ -72,6 +72,48 @@
                 $('#questionForm').html(data);
             }
         })
+
+
+        // timmer functio
+
+        timmerValueMin = $('#timerMin').text()
+        timmerValueSec = $('#timerSec').text()
+        console.log(timmerValueMin, timmerValueSec)
+
+        const totalTime = 2
+        let time = totalTime * 60
+
+        const countDownEl = document.getElementById('timer');
+
+        function countDown() {
+            let min = Math.floor(time / 60)
+            let sec = time % 60
+
+            min = min < 10 ? '0' + min : min
+            sec = sec < 10 ? '0' + sec : sec
+
+            if ( min == 00 && sec == 00 ) {
+                clearInterval(updateCount)
+                min = '00'
+                sec = '00'
+                console.log("Time Up")
+
+                FormSubmit();
+            }else if (min == 0) {
+                $('#timer').addClass('blinking')
+            }
+
+            countDownEl.innerHTML = `${min}:${sec}`;
+            time --;
+            
+           
+        }
+
+        let updateCount = setInterval(countDown, 1000);
+        
+
+        // timmer function
+
     })
 
 
@@ -100,8 +142,9 @@
     console.log("std name => " + name + "\n" + "dept name =>" + dept)
 
 
-    $('#ansSubmit').on('click', function() {
-        console.log('Submitted')
+    // form submit function
+
+    function FormSubmit() {
 
         formData = $('form').serializeArray()
         console.log(formData)
@@ -143,8 +186,12 @@
             
         });
 
-    })
+    }
 
+
+    // form submit function
+
+    $('#ansSubmit').on('click', FormSubmit)
 
 
 </script>
