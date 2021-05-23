@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap');
-body {
+/* body {
     -webkit-user-select: none;
     -moz-user-select: -moz-none;
     -ms-user-select: none;
     user-select: none;
-}
+} */
 
 .headerPart {
     height: 45px;
@@ -19,7 +19,7 @@ body {
 
 .headArea {
     border: 1px solid black;
-    height: 120px;
+    height: 90px;
     background-color: #2D2E2F;
     display: flex;
     align-items: center;
@@ -44,7 +44,7 @@ body {
     align-items: center;
     color: #fff;
     font-size: 20px;
-    margin-top: -40px;
+    /* margin-top: -40px; */
     padding: 0;
 }
 .numberAndName {
@@ -53,11 +53,11 @@ body {
     align-items: center;
     color: #F1EE00;
     font-size: 22px;
-
+    padding: 0;
 }
-.SysNo {
+/* .SysNo {
     font-size: 28px;
-}
+} */
 
 .maincontainer {
     /* border: 1px solid black; */
@@ -65,8 +65,9 @@ body {
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
-    height: 300px;
+    /* width: 500px; */
+    width: 100%;
+    height: calc(100% - (45px + 90px));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,7 +81,7 @@ body {
     border-radius: 18px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     /* box-shadow: 0 0 10px 5px #c4c4c4; */
 }
 .userInp {
@@ -94,9 +95,26 @@ body {
 }
 .subBtn {
     border-radius: 18px;
-    background-color: #2D2E2F;
+    background: #2D2E2F;
     color: #F1EE00;
 }
-.subBtn:hover {
-    color: #fff;
+.subBtn:focus {
+    border-radius: 18px;
+    background: #2D2E2F;
+    color: #F1EE00;
+}
+
+
+.msg {
+    /* border: 1px solid black; */
+    position: absolute;
+    top: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 40px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* text-shadow: 2px 2px #2D2E2F; */
 }

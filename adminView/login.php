@@ -20,12 +20,15 @@
                 <div class="container">
                     <div class="form">
                         <h2>Admin Portal</h2>
-                        <form>
+                        <form action="check.php" method="post" autocomplete="off">
+                            <?php if (isset($_GET['error'])){ ?>
+                            <p class="error"><?php echo $_GET['error']; ?></p>
+                            <?php } ?>
                             <div class="inputbox">
-                                <input type="text" placeholder="User ID">
+                                <input type="text" placeholder="User ID" name="username">
                             </div>
                             <div class="inputbox">
-                                <input type="password" placeholder="Password">
+                                <input type="password" placeholder="Password" name="password">
                             </div>
                             <div class="inputbox">
                                 <input type="submit" value="Login">
