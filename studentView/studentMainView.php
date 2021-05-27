@@ -76,9 +76,9 @@
 
         // timmer functio
 
-        timmerValueMin = $('#timerMin').text()
-        timmerValueSec = $('#timerSec').text()
-        console.log(timmerValueMin, timmerValueSec)
+        // timmerValueMin = $('#timerMin').text()
+        // timmerValueSec = $('#timerSec').text()
+        // console.log(timmerValueMin, timmerValueSec)
 
         const totalTime = 2
         let time = totalTime * 60
@@ -98,7 +98,7 @@
                 sec = '00'
                 console.log("Time Up")
 
-                FormSubmit();
+                // FormSubmit();
             }else if (min == 0) {
                 $('#timer').addClass('blinking')
             }
