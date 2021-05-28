@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap');
+
+.header {
+    /* border: 2px solid black; */
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: first baseline;
+    font-family: 'Lora', serif;
+    box-shadow: 0 0 8px 0 #A9A7A7;
+}
+.mainContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.controlBtns {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+}
+.subBtn {
+    height: 35px;
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+.subBtn {
+    border-radius: 18px;
+    background: #2D2E2F;
+    color: #F1EE00;
+}
+.subBtn:focus {
+    border-radius: 18px;
+    background: #2D2E2F;
+    color: #F1EE00;
+}
