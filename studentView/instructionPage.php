@@ -20,7 +20,13 @@
 
 
     <div class="container-fluid mainContainer">
-
+        <div class=" insts">
+            <!-- <strong> -->
+                <span>1. Total duration of examination: <strong>10 minutes</strong></span> <br>
+                <span>2. Number of questions: <strong>5</strong></span><br>
+                <span>3. All questions are of objective type. Four options are given to each question out of which only one will be the correct answer.</span>
+            <!-- </strong> -->
+        </div>
     </div>
 
     <div class="container-fluid controlers">
