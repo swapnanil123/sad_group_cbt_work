@@ -135,6 +135,7 @@
     height: calc(100% - (45px + 60px));
     width: 100%;
     padding: 0;
+
 }
 .headContent {
     font-family: lato;
@@ -252,17 +253,30 @@
     -ms-user-select: none;
     user-select: none;
 } */
-
-
+.btnArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.closeBTN {
+    width: 100px;
+    height: 40px;
+    background: #202020;
+    color: #F1EE00;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
 .successArea {
     position: absolute;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
     height: calc(100% - 45px);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 22px;
-    color: #F1EE00;
-    background-color: #515253;
+    /* color: #F1EE00; */
+    /* background-color: #515253; */
     display: none;
 }
 .successmsg {
@@ -270,8 +284,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+    /* border: 1px solid black; */
+    width: 900px;
 }
+
+tr,th,td {
+    text-align: center;
+    border: 1px solid black;
+    padding: 0 20px 0 20px ;
+    width: 900px;
+}
+
 
 .blinking {
     opacity: 1;

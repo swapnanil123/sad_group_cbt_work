@@ -48,7 +48,26 @@
 
     <div class="successArea">
         <div class="successmsg">
-            <span>You have Successfully Complete the Test</span>
+            <table class="">
+                <thead>
+                    <tr>
+                        <th>Total No. Questions</th>
+                        <th>Totale Attempted</th>
+                        <th>Totale Not Attempted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td id="totQ">00</td>
+                    <td id="totAQ">00</td>
+                    <td id="totNAQ">00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="btnArea">
+                <input type="submit" class="closeBTN" name="closeBtn" id="closeBtn" value="Close">
+            </div>
         </div> 
     </div>
 
@@ -109,7 +128,7 @@
            
         }
 
-        let updateCount = setInterval(countDown, 1000);
+        let updateCount = setInterval(countDown, 1000); 
         
 
         // timmer function
@@ -191,7 +210,11 @@
 
     // form submit function
 
-    $('#ansSubmit').on('click', FormSubmit)
+    $('#ansSubmit').on('click', FormSubmit) 
 
+
+    $('#closeBtn').on('click', function() {
+        window.location.href = "studentLogin.php";
+    })
 
 </script>
