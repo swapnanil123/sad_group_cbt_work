@@ -17,13 +17,10 @@
                     <div class="container pageWraper">
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
-<<<<<<< HEAD
-                                <div class="mainWrapper card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
-=======
+
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4"> Admin Login</h3></div>
->>>>>>> 7c7bb234d7a94857e1b8b8bcaec38e9f5694cf13
+
                                     <div class="card-body">
                                         <form action="check.php" method="post" autocomplete="off">
                                             <?php if (isset($_GET['error'])){ ?>
