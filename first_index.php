@@ -22,6 +22,7 @@
         <div class="controlBtns">
         <a href="adminView/login.php"><input type="button" class="subBtn border border-secondary shadow-none" name="submit" id="AdminBTN" value="ADMIN"></a>
         <a href="studentView/studentLogin.php"><input type="button" class="subBtn border border-secondary shadow-none" name="submit" id="TestBtn" value="TEST"></a>
+        <a href="studentRegistration/studentReg.php"><input type="button" class="subBtn border border-secondary shadow-none" name="submit" id="TestBtn" value="STUDENT REGISTRATION"></a>
         </div>
     </div>
 
