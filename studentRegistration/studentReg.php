@@ -16,7 +16,7 @@
     
     <div class="outerContainer container">
         <div class="mainContainer container">
-            <form autocomplete="off">
+            <form id="stdRegForm" autocomplete="off">
 
                 <div class="header">
                     <h1>Student Registration Form</h1>
@@ -25,7 +25,7 @@
 
                 <div class="">
                     <div class="form-group">
-                        <label>Name</label>
+                        <label for="stdname">Name</label>
                         <input type="text" name="stdname" class="form-control shadow-none outline-none border-none" id="stdname" placeholder=" ">
                     </div>
                     <div class="form-group">
@@ -39,13 +39,15 @@
                     <div class="form-group">
                         <label >Course</label>
                         <select name="stdcourse" id="stdCourse" class="form-control shadow-none outline-none border-none">
+                            <option value="" selected disabled>Slecte Course </option>
                             <option value="Honourse">Honourse</option>
                             <option value="General">General</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label >Course</label>
+                        <label >Semester</label>
                         <select name="stdsem" id="stdSem" class="form-control shadow-none outline-none border-none">
+                            <option value="" selected disabled>Slecte Semester </option>    
                             <option value="semester 1">Semester 1</option>
                             <option value="semester 2">Semester 2</option>
                             <option value="semester 3">Semester 3</option>
@@ -69,3 +71,57 @@
 
 </body>
 </html>
+
+<script>
+
+    $("#stdRegForm").on("submit",function(e) {    
+        e.preventDefault()
+
+        name = $("#stdname").val()
+        dept = $("#stdDept").val()
+        roll = $("#stdRoll").val()
+        course = $("#stdCourse").val()
+        sem = $("#stdSem").val()
+        session = $("#stdSes").val()
+        console.log(name, dept, roll, course, sem, session)
+
+        if(name != "" && dept != "" && roll != "" && course != "" && sem != "" && session != "") {
+
+
+            $.ajax({
+                url: "studentRegistration.php",
+                type: "POST",
+                data: {
+                    "name" : name,
+                    "dept" : dept,
+                    "roll" : roll,
+                    "course": course,
+                    "sem": sem,
+                    "session": session,
+                },
+                success: function(data) {
+                    if (data == "successfully") {
+                        $('#stdRegForm').trigger("reset");
+                        console.log(data)
+                        alert("Successfully Registered")
+                        $("#submitBtn").prop('disabled', true);
+                    } else {
+                        $('#stdRegForm').trigger("reset");
+                        alert("Registration Unsuccessful");
+                    }
+                },
+                error: function(err) {
+                    console.log(err)
+                }
+            })
+
+        } else {
+            $("#msg").text("Please Enter all the Fields properly")
+            $("#msg").addClass("alert-danger")
+            $("#msg").removeClass("d-none")
+        }
+    })
+
+
+
+</script>
