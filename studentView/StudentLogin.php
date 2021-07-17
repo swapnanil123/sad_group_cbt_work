@@ -98,7 +98,7 @@ $(document).ready(function() {
                         // alert(data)
                     } else {
                         $('#massage').text(data);
-                        setTimeout(function(){ 
+                        setTimeout(function(){
                             $('#massage').fadeOut();
                         }, 10000);
                     }

@@ -7,6 +7,8 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Login</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
         <link href="styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -22,36 +24,39 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4"> Admin Login</h3></div>
 
                                     <div class="card-body">
-                                        <form action="check.php" method="post" autocomplete="off">
-                                            <?php if (isset($_GET['error'])){ ?>
-                                            <p class="error"><?php echo $_GET['error']; ?></p>
-                                            <?php } ?>
+                                        <form method="post" id="userLoginForm" autocomplete="off">
+                                            
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                                <input class="form-control" id="inputEmail" type="text" placeholder="name@example.com" />
                                                 <label for="inputEmail">User ID</label>
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
                                                 <label for="inputPassword">Password</label>
                                             </div>
-                                            <div class="form-check mb-3">
+                                            <!-- <div class="form-check mb-3">
                                                 <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
                                                 <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
-                                            </div>
+                                            </div> -->
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="password.html">Forgot Password?</a>
-                                                <a class="btn btn-primary" href="index.html">Login</a>
+                                                <input type="submit" name="submit" class="btn btn-primary" id="subBtn" value="Login">
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                                        <div class="small"><a href="adminReg.php">Need an account? Sign up!</a></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </main>
+            </div>
+            <div class="massage container ">
+                <div class="alert alert-success d-none" id="msg">
+                    <strong>Success!</strong> Indicates a successful or positive action.
+                </div>
             </div>
             <div id="layoutAuthentication_footer">
                 <footer class="py-4 bg-light mt-auto">
@@ -72,3 +77,42 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+
+
+<script>
+
+    $("#userLoginForm").on("submit", function(e) {
+        e.preventDefault()
+
+        username = $("#inputEmail").val()
+        password = $("#inputPassword").val()
+        console.log("Working")
+        console.log(username, password)
+        $.ajax({
+            url: "check.php",
+            type: "POST",
+            data: {
+                "username" : username,
+                "pass": password,
+            },
+            success: function(data) {
+                console.log(data)
+                if (data == "success") {
+                    window.location.replace("adminHome.php")
+                    console.log(massage)
+                    $('#userLoginForm').trigger("reset");
+                } else {
+                    $("#msg").text("You hava Entered wrong username and password")
+                    $("#msg").addClass("alert-danger")
+                    $("#msg").removeClass("d-none")
+                    $('#userLoginForm').trigger("reset");
+                }
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
+    })
+
+
+</script>
