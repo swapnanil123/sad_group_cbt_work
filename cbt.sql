@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2021 at 06:26 PM
+-- Generation Time: Jul 17, 2021 at 02:50 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.5
 
@@ -117,70 +117,51 @@ CREATE TABLE `submittedqtnans` (
 --
 
 INSERT INTO `submittedqtnans` (`id`, `stdRoll`, `stdName`, `stdDept`, `questionName`, `stdGivenAns`, `currectAns`, `submitTime`) VALUES
-(41, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '10', '10', '14-05-2021 08:28:44 PM'),
-(42, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert voice pain unresponsive', 'awake verbalization pain unconscious', '14-05-2021 08:28:44 PM'),
-(43, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '4-6 hours', '2-4 hours', '14-05-2021 08:28:44 PM'),
-(44, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On every wound', 'On all infected wounds.', '14-05-2021 08:28:44 PM'),
-(45, '21', 'Swapnanil Paul', 'Computer Science', ' how old are you? ', '21', '21', '14-05-2021 08:28:44 PM'),
-(46, '21', 'Swapnanil Paul', 'Computer Science', ' how old are you? ', '20', '21', '14-05-2021 08:29:00 PM'),
-(47, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert voice pain unresponsive', 'awake verbalization pain unconscious', '14-05-2021 08:29:00 PM'),
-(48, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '6-8 hours', '2-4 hours', '14-05-2021 08:29:00 PM'),
-(49, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '20', '10', '14-05-2021 08:29:00 PM'),
-(50, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On all complex wounds.', 'On all infected wounds.', '14-05-2021 08:29:00 PM'),
-(51, '21', 'Swapnanil Paul', 'Computer Science', ' how old are you? ', '21', '21', '14-05-2021 08:29:23 PM'),
-(52, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert voice pain unresponsive', 'awake verbalization pain unconscious', '14-05-2021 08:29:23 PM'),
-(53, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On all complex wounds.', 'On all infected wounds.', '14-05-2021 08:29:23 PM'),
-(54, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '20', '10', '14-05-2021 08:29:23 PM'),
-(55, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '6-8 hours', '2-4 hours', '14-05-2021 08:29:23 PM'),
-(56, '21', 'Swapnanil Paul', 'Computer Science', ' how old are you? ', '20', '21', '14-05-2021 09:33:15 PM'),
-(57, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'awake verbalization pain unconscious', 'awake verbalization pain unconscious', '14-05-2021 09:33:15 PM'),
-(58, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On all complex wounds.', 'On all infected wounds.', '14-05-2021 09:33:15 PM'),
-(59, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '20', '10', '14-05-2021 09:33:15 PM'),
-(60, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '6-8 hours', '2-4 hours', '14-05-2021 09:33:15 PM'),
-(61, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '14-05-2021 09:33:45 PM'),
-(62, '21', 'Swapnanil Paul', 'Computer Science', ' how old are you? ', '20', '21', '14-05-2021 09:33:45 PM'),
-(63, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '6-8 hours', '2-4 hours', '14-05-2021 09:33:45 PM'),
-(64, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On all infected wounds.', 'On all infected wounds.', '14-05-2021 09:33:45 PM'),
-(65, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '12', '10', '14-05-2021 09:33:45 PM'),
-(66, '21', 'Swapnanil Paul', 'Computer Science', ' how old are you? ', '20', '21', '14-05-2021 09:34:29 PM'),
-(67, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On all chronic wounds', 'On all infected wounds.', '14-05-2021 09:34:29 PM'),
-(68, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '4-6 hours', '2-4 hours', '14-05-2021 09:34:29 PM'),
-(69, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '14-05-2021 09:34:29 PM'),
-(70, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '12', '10', '14-05-2021 09:34:29 PM'),
-(71, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On all infected wounds.', 'On all infected wounds.', '14-05-2021 09:38:07 PM'),
-(72, '21', 'Swapnanil Paul', 'Computer Science', ' how old are you? ', '20', '21', '14-05-2021 09:38:07 PM'),
-(73, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '12', '10', '14-05-2021 09:38:07 PM'),
-(74, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'awake verbalization pain unconscious', 'awake verbalization pain unconscious', '14-05-2021 09:38:07 PM'),
-(75, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '2-4 hours', '2-4 hours', '14-05-2021 09:38:07 PM'),
-(76, '21', 'Swapnanil Paul', 'Computer Science', ' how old are you? ', '21', '21', '14-05-2021 09:38:21 PM'),
-(77, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '20', '10', '14-05-2021 09:38:21 PM'),
-(78, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert voice pain unresponsive', 'awake verbalization pain unconscious', '14-05-2021 09:38:21 PM'),
-(79, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '6-8 hours', '2-4 hours', '14-05-2021 09:38:21 PM'),
-(80, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On every wound', 'On all infected wounds.', '14-05-2021 09:38:21 PM'),
-(81, '21', 'Swapnanil Paul', 'Computer Science', ' how old are you? ', '20', '21', '14-05-2021 09:39:11 PM'),
-(82, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '2-4 hours', '2-4 hours', '14-05-2021 09:39:11 PM'),
-(83, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '12', '10', '14-05-2021 09:39:11 PM'),
-(84, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On all complex wounds.', 'On all infected wounds.', '14-05-2021 09:39:11 PM'),
-(85, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'awake voice pain unconscious', 'awake verbalization pain unconscious', '14-05-2021 09:39:11 PM'),
-(86, '21', 'Swapnanil Paul', 'Computer Science', ' how old are you? ', '20', '21', '14-05-2021 09:39:29 PM'),
-(87, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert voice pain unresponsive', 'awake verbalization pain unconscious', '14-05-2021 09:39:29 PM'),
-(88, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On every wound', 'On all infected wounds.', '14-05-2021 09:39:29 PM'),
-(89, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '4-6 hours', '2-4 hours', '14-05-2021 09:39:29 PM'),
-(90, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '10', '10', '14-05-2021 09:39:29 PM'),
-(91, '21', 'Swapnanil Paul', 'Computer Science', ' how old are you? ', '20', '21', '14-05-2021 09:48:26 PM'),
-(92, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '1-2 hours', '2-4 hours', '14-05-2021 09:48:26 PM'),
-(93, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'awake voice pain unconscious', 'awake verbalization pain unconscious', '14-05-2021 09:48:26 PM'),
-(94, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On all chronic wounds', 'On all infected wounds.', '14-05-2021 09:48:26 PM'),
-(95, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '12', '10', '14-05-2021 09:48:26 PM'),
-(96, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '14-05-2021 09:50:07 PM'),
-(97, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On all complex wounds.', 'On all infected wounds.', '14-05-2021 09:50:07 PM'),
-(98, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '4-6 hours', '2-4 hours', '14-05-2021 09:50:07 PM'),
-(99, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '12', '10', '14-05-2021 09:50:07 PM'),
-(100, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '1-2 hours', '2-4 hours', '14-05-2021 09:51:01 PM'),
-(101, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '14-05-2021 09:51:01 PM'),
-(102, '21', 'Swapnanil Paul', 'Computer Science', ' how old are you? ', '21', '21', '14-05-2021 09:51:01 PM'),
-(103, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On every wound', 'On all infected wounds.', '14-05-2021 09:51:01 PM'),
-(104, '21', 'Swapnanil Paul', 'Computer Science', ' what is the answer of 20-(5+5) = ? ', '20', '10', '14-05-2021 09:51:01 PM');
+(118, '21', 'Swapnanil Paul', 'Computer Science', ' What is the answer of 20-(5+5) = ? ', '12', '10', '17-05-2021 02:32:29 PM'),
+(119, '21', 'Swapnanil Paul', 'Computer Science', ' How old are you? ', '20', '21', '17-05-2021 02:32:29 PM'),
+(120, '21', 'Swapnanil Paul', 'Computer Science', ' When would it be beneficial to use a wound care plan? ', 'On all chronic wounds', 'On all infected wounds.', '17-05-2021 02:32:29 PM'),
+(121, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '1-2 hours', '2-4 hours', '17-05-2021 02:32:29 PM'),
+(122, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '17-05-2021 02:32:29 PM'),
+(123, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '28-05-2021 08:19:00 PM'),
+(124, '21', 'Swapnanil Paul', 'Computer Science', ' How old are you? ', '21', '21', '28-05-2021 08:19:00 PM'),
+(125, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '28-05-2021 08:20:13 PM'),
+(126, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '28-05-2021 08:21:06 PM'),
+(127, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '28-05-2021 08:21:15 PM'),
+(128, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '28-05-2021 08:22:35 PM'),
+(129, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '28-05-2021 08:22:43 PM'),
+(130, '21', 'Swapnanil Paul', 'Computer Science', ' How old are you? ', '20', '21', '28-05-2021 08:23:01 PM'),
+(131, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '28-05-2021 08:23:13 PM'),
+(132, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '28-05-2021 08:23:59 PM'),
+(133, '21', 'Swapnanil Paul', 'Computer Science', ' How old are you? ', '20', '21', '28-05-2021 08:24:20 PM'),
+(134, '21', 'Swapnanil Paul', 'Computer Science', ' How old are you? ', '20', '21', '28-05-2021 08:24:36 PM'),
+(135, '21', 'Swapnanil Paul', 'Computer Science', ' How old are you? ', '22', '21', '28-05-2021 08:26:04 PM'),
+(136, '21', 'Swapnanil Paul', 'Computer Science', ' How old are you? ', '20', '21', '28-05-2021 08:26:17 PM'),
+(137, '21', 'Swapnanil Paul', 'Computer Science', ' How old are you? ', '20', '21', '28-05-2021 08:29:58 PM'),
+(138, '21', 'Swapnanil Paul', 'Computer Science', ' How soon after surgery is the patient expected to pass urine? ', '2-4 hours', '2-4 hours', '03-06-2021 07:37:12 PM'),
+(139, '21', 'Swapnanil Paul', 'Computer Science', ' What does AVPU mean?  ', 'alert verbalization pain unconscious', 'awake verbalization pain unconscious', '03-06-2021 07:37:12 PM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userlogin`
+--
+
+CREATE TABLE `userlogin` (
+  `id` int(50) NOT NULL,
+  `fullName` varchar(255) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `userPassword` varchar(255) NOT NULL,
+  `userEmail` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `userlogin`
+--
+
+INSERT INTO `userlogin` (`id`, `fullName`, `username`, `userPassword`, `userEmail`) VALUES
+(1, 'admin', 'admin', 'admin', 'admin@admin.com'),
+(9, 'swap', 'swapnanil', '123456', 'adm@las.com'),
+(10, 'asdf', 'asd', 'asd', 'asd@asdf');
 
 --
 -- Indexes for dumped tables
@@ -211,6 +192,12 @@ ALTER TABLE `submittedqtnans`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `userlogin`
+--
+ALTER TABLE `userlogin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -236,7 +223,13 @@ ALTER TABLE `studentpersonalinfo`
 -- AUTO_INCREMENT for table `submittedqtnans`
 --
 ALTER TABLE `submittedqtnans`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+
+--
+-- AUTO_INCREMENT for table `userlogin`
+--
+ALTER TABLE `userlogin`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
