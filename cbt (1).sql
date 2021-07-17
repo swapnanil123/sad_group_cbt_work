@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2021 at 02:50 PM
+-- Generation Time: Jul 17, 2021 at 03:46 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.5
 
@@ -78,19 +78,19 @@ INSERT INTO `studentlogininfo` (`id`, `roll_number`, `username`, `password`) VAL
 
 CREATE TABLE `studentpersonalinfo` (
   `id` int(50) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `stdName` varchar(255) NOT NULL,
   `roll` varchar(255) NOT NULL,
   `dept` varchar(255) NOT NULL,
   `course` varchar(255) NOT NULL,
   `semester` varchar(255) NOT NULL,
-  `session` varchar(255) NOT NULL
+  `sessionStd` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `studentpersonalinfo`
 --
 
-INSERT INTO `studentpersonalinfo` (`id`, `name`, `roll`, `dept`, `course`, `semester`, `session`) VALUES
+INSERT INTO `studentpersonalinfo` (`id`, `stdName`, `roll`, `dept`, `course`, `semester`, `sessionStd`) VALUES
 (1, 'swapnanil paul', '21', 'computer science', 'honours', '6', '2019-2020'),
 (2, 'akash biswas', '22', 'computer science', 'honours', '6', '2019-2020'),
 (3, 'debajyoti pramanick', '23', 'mathematics', 'honours', '6', '2019-2020');
@@ -217,7 +217,7 @@ ALTER TABLE `studentlogininfo`
 -- AUTO_INCREMENT for table `studentpersonalinfo`
 --
 ALTER TABLE `studentpersonalinfo`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `submittedqtnans`
