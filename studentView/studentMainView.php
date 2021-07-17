@@ -93,7 +93,7 @@
         })
 
 
-        // timmer functio
+        // timmer function
 
         // timmerValueMin = $('#timerMin').text()
         // timmerValueSec = $('#timerSec').text()
