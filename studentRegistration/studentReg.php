@@ -39,15 +39,15 @@
                     <div class="form-group">
                         <label >Course</label>
                         <select name="stdcourse" id="stdCourse" class="form-control shadow-none outline-none border-none">
-                            <option value="" selected disabled>Slecte Course </option>
-                            <option value="Honourse">Honourse</option>
+                            <option value="" selected disabled>Selecte Course </option>
+                            <option value="Honours">Honours</option>
                             <option value="General">General</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label >Semester</label>
                         <select name="stdsem" id="stdSem" class="form-control shadow-none outline-none border-none">
-                            <option value="" selected disabled>Slecte Semester </option>    
+                            <option value="" selected disabled>Selecte Semester </option>    
                             <option value="semester 1">Semester 1</option>
                             <option value="semester 2">Semester 2</option>
                             <option value="semester 3">Semester 3</option>
