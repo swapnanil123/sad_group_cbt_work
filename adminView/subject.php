@@ -7,13 +7,17 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Exam Details</title>
-        <link href="styles.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet" />
+
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Admin Panel</a>
+            <a class="navbar-brand ps-3" href="./../adminView/adminHome.php">Admin Panel</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -113,76 +117,101 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Exam Details</h1>
+                        <h1 class="mt-4">Department</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active"><!--Type Text Here--></li>
+                        </ol>
+                        <br><br>
                         <div class="row">
-                        	<div id="layoutAuthentication">
-					            <div id="layoutAuthentication_content">
-					                <main>
-					                    <div class="container">
-					                        <div class="row justify-content-center">
-					                            <div class="col-lg-5">
-					                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-					                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Exam Details</h3></div>
-					                                    <div class="card-body">
-					                                        <form>
-					                                            <div class="form-floating mb-3">
-					                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-					                                                <label for="inputEmail">Paper Name</label>
-					                                            </div>
-					                                            <div class="form-floating mb-3">
-					                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
-					                                                <label for="inputPassword">Paper Code</label>
-					                                            </div>
-					                                            <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg example">
-																  <option selected>Total number of questions</option>
-																  <option value="10">10</option>
-																  <option value="20">20</option>
-																  <option value="30">30</option>
-																</select>
-
-																<select class="form-select form-select-sm" aria-label=".form-select-lg example">
-																  <option selected>Time in minutes</option>
-																  <option value="10">10 min</option>
-																  <option value="20">20 min</option>
-																  <option value="30">30 min</option>
-																</select>
-					                                            
-					                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-					                                                
-					                                                <a class="btn btn-primary" href="index.html">Submit</a>
-					                                            </div>
-					                                        </form>
-					                                    </div>
-					                                    <div class="card-footer text-center py-3">
-					                                        <div class="small"><a href="adminHome.php">Admin Panel</a></div>
-					                                    </div>
-					                                </div>
-					                            </div>
-					                        </div>
-					                    </div>
-					                </main>
-					            </div>
-					            <div id="layoutAuthentication_footer">
-					                <footer class="py-4 bg-light mt-auto">
-					                    <div class="container-fluid px-4">
-					                        <div class="d-flex align-items-center justify-content-between small">
-					                            <div class="text-muted">Copyright &copy; SAD</div>
-					                            <div>
-					                                <a href="#">Privacy Policy</a>
-					                                &middot;
-					                                <a href="#">Terms &amp; Conditions</a>
-					                            </div>
-					                        </div>
-					                    </div>
-					                </footer>
-					            </div>
-					        </div>
-					        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-					        <script src="js/scripts.js"></script>
-					    </div>
-					</div>
-				</main>
-			</div>
-		</div>
-	</body>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-info text-white mb-4" id="comp_div" onclick="getId(this.id)">
+                                    <div class="card-body">Computer Science</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#"><!--text--></a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4" id="phy_div" onclick="getId(this.id)">
+                                    <div class="card-body">Physics</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#"></a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4" id="che_div" onclick="getId(this.id)">
+                                    <div class="card-body">Chemistry</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#"></a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4" id="math_div" onclick="getId(this.id)">
+                                    <div class="card-body">Mathematics</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#"></a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-secondary text-white mb-4" id="hist_div" onclick="getId(this.id)">
+                                    <div class="card-body">History</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#"></a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-dark text-white mb-4" id="eng_div" onclick="getId(this.id)">
+                                    <div class="card-body">English</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#"></a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4" id="beng_div" onclick="getId(this.id)">
+                                    <div class="card-body">Bangla</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#"></a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-light text-dark mb-4" id="geo_div" onclick="getId(this.id)">
+                                    <div class="card-body">Geography</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#"></a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+             </div>
+        </div>
+    </body>
 </html>
+
+
+
+<script>
+
+    function getId(div_id) {
+        subjectName = document.getElementById(div_id).innerText;
+        subject = subjectName.replace(" ","#")
+        console.log(subject)
+        window.location.href = "examDetails.php?"+ "/" + subject;
+        
+    }
+
+
+</script>
