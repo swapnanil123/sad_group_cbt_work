@@ -9,12 +9,14 @@
         <title>Exam Details</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
         <link href="styles.css" rel="stylesheet" />
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Admin Panel</a>
+            <a class="navbar-brand ps-3" href="./../adminView/adminHome.php">Admin Panel</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -113,62 +115,33 @@
             </div>
             <div id="layoutSidenav_content">
                 <main><br><br><br>
-                    <div>
-                    <table class="table">
-                      <thead>
+                    <div class="m-4">
+                    <table class="table table-striped text-center">
+                      <thead style="background: rgba(0,0,0,0.4); color:#fff; font-family: arial; font-size: 15px">
                         <tr>
-                          <th scope="col" align="center">Exam Code</th>
-                          <th scope="col" align="center">Subject</th>
-                          <th scope="col" align="center">Paper Name</th>
-                          <th scope="col" align="center">Paper Code</th>
-                          <th scope="col" align="center">Duration (in min)</th>
-                          <th scope="col" align="center">Total Question</th>
-                          <th scope="col" align="center">Action</th>
+                          <th scope="col" >Exam Code</th>
+                          <th scope="col" >Subject</th>
+                          <th scope="col" >Paper Name</th>
+                          <th scope="col" >Paper Code</th>
+                          <th scope="col" >Duration (in min)</th>
+                          <th scope="col" >Total Question</th>
+                          <th scope="col" >Action</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row" class="table-primary" align="center">1</th>
-                          <td class="table-primary">Mark</td>
-                          <td class="table-primary" align="center">Otto</td>
-                          <td class="table-primary" align="center">@mdo</td>
-                          <td class="table-primary" align="center">20</td>
-                          <td class="table-primary" align="center">20</td>
-                          <td class="table-primary">
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button type="button" class="btn btn-success">Start</button>
-                                <button type="button" class="btn btn-danger">Stop</button>
-                            </div>
+                      <tbody id="tableBody">
+                        <!-- <tr>
+                          <th scope="row" class="text-center">1</th>
+                          <td class="">Mark</td>
+                          <td class="" >Otto</td>
+                          <td class="" >@mdo</td>
+                          <td class="" >20</td>
+                          <td class="" >20</td>
+                          <td class="">
+                                <button type="button" class="btn btn-success btn-sm shadow-none">Start</button>
+                                <button type="button" class="btn btn-danger btn-sm shadow-none">Delete</button>
                           </td>
-                        </tr>
-                        <tr>
-                          <th scope="row" class="table-secondary" align="center">1</th>
-                          <td class="table-secondary">Mark</td>
-                          <td class="table-secondary" align="center">Otto</td>
-                          <td class="table-secondary" align="center">@mdo</td>
-                          <td class="table-secondary" align="center">20</td>
-                          <td class="table-secondary" align="center">20</td>
-                          <td class="table-secondary">
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button type="button" class="btn btn-success">Start</button>
-                                <button type="button" class="btn btn-danger">Stop</button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row" class="table-warning" align="center">1</th>
-                          <td class="table-warning">Mark</td>
-                          <td class="table-warning" align="center">Otto</td>
-                          <td class="table-warning" align="center">@mdo</td>
-                          <td class="table-warning" align="center">20</td>
-                          <td class="table-warning" align="center">20</td>
-                          <td class="table-warning">
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button type="button" class="btn btn-success">Start</button>
-                                <button type="button" class="btn btn-danger">Stop</button>
-                            </div>
-                          </td>
-                        </tr>
+                        </tr> -->
+                        
                       </tbody>
                     </table>
                 </div>
@@ -178,7 +151,7 @@
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; S.A.D.</div>
                             <div>
-                                <a href="#">Privacy Policy</a>
+                                <a href="#" id="result">Privacy Policy</a>
                                 &middot;
                                 <a href="#">Terms &amp; Conditions</a>
                             </div>
@@ -189,3 +162,167 @@
         </div>
     </body>
 </html>
+
+
+
+
+<script>
+
+    $(document).ready(function() {
+        arr =[]
+
+        $.ajax({
+
+            url: "examInfoFetch.php",
+            method: "POSt",
+            success: function(data) {
+                console.log(data)
+                $("#tableBody").append(data)
+
+                x = document.querySelectorAll(".examCodeID")
+                for (i = 0; i < x.length; i++) {
+                    tex = x[i].innerHTML; 
+                    arr.push(tex)
+                }
+                
+                console.log(arr)
+
+                for (i=0; i<arr.length; i++) {
+
+
+                    $.ajax({
+
+                        url: "checkOnginExam.php",
+                        method: "POSt",
+                        data: {
+                            "code": arr[i].replace(" ", ""),
+                        },
+                        success: function(data) {
+                            // console.log(data)
+
+                            var obj = $.parseJSON(data);
+                            
+                            console.log(obj)
+                            $("#")
+                            
+                            
+                        },
+                        error: function(err) {
+                            console.log(err)
+                        }
+                    }) 
+
+                }
+                
+
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
+
+        // console.log(arr)
+
+    })
+
+
+    function getDelBtnId(btnId) {
+        console.log(btnId)
+        splitData = btnId.split("_")
+        exam_code = splitData[1]
+        console.log(exam_code)
+
+        $.ajax({
+
+            url: "deletExam.php",
+            method: "POSt",
+            data: {
+                "exam_code": exam_code,
+            },
+            success: function(data) {
+                console.log(data)
+                if (data == "successfully") {
+                    $("#trID_"+exam_code).remove()
+                }
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
+    }
+
+
+    function getData(btnId) {
+        console.log(btnId)
+        splitData = btnId.split("_")
+        exam_code = splitData[1]
+        console.log(exam_code)
+
+        $("#startBtn_"+exam_code).val("Running...")
+        $("#startBtn_"+exam_code).prop('disabled', true)
+
+        examRCode = exam_code
+        subject = $("#tdSub_"+exam_code).text()
+        paperName = $("#tdPaperName_"+exam_code).text()
+        paperCode = $("#tdPapeprCode_"+exam_code).text()
+        duration = $("#tdDuration_"+exam_code).text()
+        totQtn = $("#tdTotQtn_"+exam_code).text()
+
+        console.log(examRCode, subject, paperName, paperCode, duration, totQtn)
+
+
+        $.ajax({
+
+            url: "startExam.php",
+            method: "POSt",
+            data: {
+
+                "examCode": examRCode,
+                "subjectNam": subject,
+                "paperName": paperName,
+                "paperCode": paperCode,
+                "duration": duration,
+                "totQtn": totQtn,
+            },
+            success: function(data) {
+                console.log(data)
+                if (data == "successfully") {
+                    alert("Exam is Started...")
+                }
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
+    }
+
+
+    function stopBtnId(btnId) {
+        console.log(btnId)
+        splitData = btnId.split("_")
+        exam_code = splitData[1]
+        console.log(exam_code)
+
+        $.ajax({
+
+            url: "deletExam.php",
+            method: "POSt",
+            data: {
+                "exam_code": exam_code,
+            },
+            success: function(data) {
+                console.log(data)
+                if (data == "successfully") {
+                    $("#trID_"+exam_code).remove()
+                }
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
+
+    }
+
+
+
+</script>
