@@ -89,6 +89,7 @@
             type: 'post',
             success: function(data) {
                 $('#questionForm').html(data);
+                console.log("Hi")
             }
         })
 
