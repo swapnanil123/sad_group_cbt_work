@@ -111,38 +111,72 @@
                     </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content" class="m-5 container-fluid">
+            <div id="layoutSidenav_content" class="m-5 mt-0 container-fluid">
+                <div class="fs-2" >Subject : </div>
                 <main>
                     <div class="shadow-lg p-3 mb-5 bg-body rounded">
                         <form>
-                          <div class="mb-1">
+                          <!--<div class="mb-1">
                             <div class="d-flex  bd-highlight bg-warning rounded">
-                                <label for="exampleInputEmail1" class="form-label">Question No : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Subject : &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Paper : </label>
+                                <label for="exampleInputEmail1" class="form-label">Subject : </label>
                             </div><br>
+                            <label class="form-label fs-3"><b>Paper</b></label>
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Type a question here...">
-                          </div>
-                          <div class="mb-1">
-                            <label for="" class="form-label"><b>Option 1</b></label>
-                            <input type="text" class="form-control" id="">
-                          </div>
-                          <div class="mb-1">
-                            <label for="" class="form-label"><b>Option 2</b></label>
-                            <input type="text" class="form-control" id="">
-                          </div>
-                          <div class="mb-1">
-                            <label for="" class="form-label"><b>Option 3</b></label>
-                            <input type="text" class="form-control" id="">
-                          </div>
-                          <div class="mb-1">
-                            <label for="" class="form-label"><b>Option 4</b></label>
-                            <input type="text" class="form-control" id="">
-                          </div>
-                          <div class="mb-1">
-                            <label for="" class="form-label"><b>Answer</b></label>
-                            <input type="text" class="form-control" id="">
-                          </div>
-                          <div class="d-grid gap-2 mt-2">
-                            <button class="btn btn-success" type="button">Submit</button>
+                          </div>-->
+                            <div>
+                                <label class="form-label fs-5"><b>Paper Name </b></label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-1">
+                            <label class="form-label fs-5"><b>Course</b></label>
+                            <select class="form-select form-select-sm " aria-label=".form-select-lg example" id="ques">
+                                    <option selected>Select</option>
+                                    <option value="Core Course" id="Core Course">Core Course (CC)</option>
+                                    <option value="General" id="General">General</option>
+                                    <option value="General Elective" id="General Elective">General Elective (GE)</option>
+                                    <option value="SEC" id="SEC">Skill Enhancement Course (SEC)</option>
+                                    <option value="DSE" id="DSE">Discipline Specific Elective (DSE)</option>
+                                    <option value="AECC" id="AECC">Ability Enhancement Compulsory Course (AECC)</option>
+                                </select>
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label fs-5"><b>Semester</b></label>
+                                <select class="form-select form-select-sm " aria-label=".form-select-lg example" id="ques">
+                                    <option selected>Select</option>
+                                    <option value="1" id="1">Semester 1</option>
+                                    <option value="2" id="2">Semester 2</option>
+                                    <option value="3" id="3">Semester 3</option>
+                                    <option value="4" id="4">Semester 4</option>
+                                    <option value="5" id="5">Semester 5</option>
+                                    <option value="6" id="6">Semester 6</option>
+                                </select>
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label fs-5"><b>Total number of questions</b></label>
+                                <select class="form-select form-select-sm " aria-label=".form-select-lg example" id="ques">
+                                    <option selected>Select</option>
+                                    <option value="10" id="10">10</option>
+                                    <option value="20" id="20">20</option>
+                                    <option value="30" id="30">30</option>
+                                    <option value="40" id="40">40</option>
+                                    <option value="50" id="50">50</option>
+                                    <option value="60" id="60">60</option>
+                                </select>
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label fs-5"><b>Total time allotted (in minutes)</b></label>
+                                <select class="form-select form-select-sm " aria-label=".form-select-lg example" id="ques">
+                                    <option selected>Select</option>
+                                    <option value="10" id="10">10</option>
+                                    <option value="20" id="20">20</option>
+                                    <option value="30" id="30">30</option>
+                                    <option value="40" id="40">40</option>
+                                    <option value="50" id="50">50</option>
+                                    <option value="60" id="60">60</option>
+                                </select>                          
+                            </div>
+                            <div class="d-grid gap-2 mt-4">
+                                <button class="btn btn-warning" type="button">Add</button>
                             </div>
                         </form>
                     </div>
