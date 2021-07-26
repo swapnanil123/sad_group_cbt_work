@@ -203,8 +203,11 @@
                             var obj = $.parseJSON(data);
                             
                             console.log(obj)
-                            $("#")
-                            
+                            tr = $("#startBtn_"+obj).val()
+                            console.log(tr)
+                            $("#startBtn_"+obj).val("Running...")
+                            $("#startBtn_"+obj).prop('disabled', true)
+                            $("#stopBtn_"+obj).prop('disabled', false)
                             
                         },
                         error: function(err) {
@@ -260,6 +263,7 @@
 
         $("#startBtn_"+exam_code).val("Running...")
         $("#startBtn_"+exam_code).prop('disabled', true)
+        $("#stopBtn_"+exam_code).prop('disabled', false)
 
         examRCode = exam_code
         subject = $("#tdSub_"+exam_code).text()
@@ -305,7 +309,7 @@
 
         $.ajax({
 
-            url: "deletExam.php",
+            url: "deletOnginExam.php",
             method: "POSt",
             data: {
                 "exam_code": exam_code,
@@ -313,7 +317,9 @@
             success: function(data) {
                 console.log(data)
                 if (data == "successfully") {
-                    $("#trID_"+exam_code).remove()
+
+                    $("#startBtn_"+exam_code).val("Complete")
+                    $("#startBtn_"+exam_code).prop('disabled', false)
                 }
             },
             error: function(err) {
