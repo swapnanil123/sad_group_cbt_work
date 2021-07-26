@@ -115,14 +115,15 @@
             </div>
             <div id="layoutSidenav_content">
                 <main><br><br><br>
-                    <div class="m-4">
+                    <div class="m-2">
                     <table class="table table-striped text-center">
                       <thead style="background: rgba(0,0,0,0.4); color:#fff; font-family: arial; font-size: 15px">
                         <tr>
                           <th scope="col" >Exam Code</th>
                           <th scope="col" >Subject</th>
-                          <th scope="col" >Paper Name</th>
+                          <th scope="col" >Semester Name</th>
                           <th scope="col" >Paper Code</th>
+                          <th scope="col" >Course</th>
                           <th scope="col" >Duration (in min)</th>
                           <th scope="col" >Total Question</th>
                           <th scope="col" >Action</th>

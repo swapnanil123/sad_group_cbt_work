@@ -8,6 +8,8 @@
         <meta name="author" content="" />
         <title>Exam Details</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <link href="styles.css" rel="stylesheet" />
     </head>
@@ -111,72 +113,44 @@
                     </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content" class="m-5 mt-0 container-fluid">
-                <div class="fs-2" >Subject : </div>
+            <div id="layoutSidenav_content" class="m-4 container-fluid">
                 <main>
-                    <div class="shadow-lg p-3 mb-5 bg-body rounded">
-                        <form>
-                          <!--<div class="mb-1">
-                            <div class="d-flex  bd-highlight bg-warning rounded">
-                                <label for="exampleInputEmail1" class="form-label">Subject : </label>
+                    <div class="shadow-lg p-3  bg-body rounded">
+                        <form id="qtnForm" autocomplete="off">
+
+                            <div class="d-flex p-2 justify-content-between bd-highlight bg-warning rounded">
+                                <div>Subject : <strong><span id="subName"></span></strong></div>
+                                <div>Semester Name : <strong><span id="semName"></span></strong></div>
+                                <div>Paper Code : <strong><span id="PapCode"></span></strong></div>
                             </div><br>
-                            <label class="form-label fs-3"><b>Paper</b></label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Type a question here...">
-                          </div>-->
-                            <div>
-                                <label class="form-label fs-5"><b>Paper Name </b></label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
+                        
                             <div class="mb-1">
-                            <label class="form-label fs-5"><b>Course</b></label>
-                            <select class="form-select form-select-sm " aria-label=".form-select-lg example" id="ques">
-                                    <option selected>Select</option>
-                                    <option value="Core Course" id="Core Course">Core Course (CC)</option>
-                                    <option value="General" id="General">General</option>
-                                    <option value="General Elective" id="General Elective">General Elective (GE)</option>
-                                    <option value="SEC" id="SEC">Skill Enhancement Course (SEC)</option>
-                                    <option value="DSE" id="DSE">Discipline Specific Elective (DSE)</option>
-                                    <option value="AECC" id="AECC">Ability Enhancement Compulsory Course (AECC)</option>
-                                </select>
-                            </div>
-                            <div class="mb-1">
-                                <label class="form-label fs-5"><b>Semester</b></label>
-                                <select class="form-select form-select-sm " aria-label=".form-select-lg example" id="ques">
-                                    <option selected>Select</option>
-                                    <option value="1" id="1">Semester 1</option>
-                                    <option value="2" id="2">Semester 2</option>
-                                    <option value="3" id="3">Semester 3</option>
-                                    <option value="4" id="4">Semester 4</option>
-                                    <option value="5" id="5">Semester 5</option>
-                                    <option value="6" id="6">Semester 6</option>
-                                </select>
-                            </div>
-                            <div class="mb-1">
-                                <label class="form-label fs-5"><b>Total number of questions</b></label>
-                                <select class="form-select form-select-sm " aria-label=".form-select-lg example" id="ques">
-                                    <option selected>Select</option>
-                                    <option value="10" id="10">10</option>
-                                    <option value="20" id="20">20</option>
-                                    <option value="30" id="30">30</option>
-                                    <option value="40" id="40">40</option>
-                                    <option value="50" id="50">50</option>
-                                    <option value="60" id="60">60</option>
-                                </select>
-                            </div>
-                            <div class="mb-1">
-                                <label class="form-label fs-5"><b>Total time allotted (in minutes)</b></label>
-                                <select class="form-select form-select-sm " aria-label=".form-select-lg example" id="ques">
-                                    <option selected>Select</option>
-                                    <option value="10" id="10">10</option>
-                                    <option value="20" id="20">20</option>
-                                    <option value="30" id="30">30</option>
-                                    <option value="40" id="40">40</option>
-                                    <option value="50" id="50">50</option>
-                                    <option value="60" id="60">60</option>
-                                </select>                          
-                            </div>
-                            <div class="d-grid gap-2 mt-4">
-                                <button class="btn btn-warning" type="button">Add</button>
+                            
+                            <label for="examQtnInp" class="mb-1">Question</label>
+                            <input type="text" class="form-control" id="examQtnInp"  placeholder="Type a question here..." required>
+                          </div>
+                          <div class="mb-1">
+                            <label for="option_one" class="form-label">Option 1</label>
+                            <input type="text" class="form-control" id="option_one" required>
+                          </div>
+                          <div class="mb-1">
+                            <label for="option_two" class="form-label">Option 2</label>
+                            <input type="text" class="form-control" id="option_two" required>
+                          </div>
+                          <div class="mb-1">
+                            <label for="option_three" class="form-label">Option 3</label>
+                            <input type="text" class="form-control" id="option_three" required>
+                          </div>
+                          <div class="mb-1">
+                            <label for="option_four" class="form-label">Option 4</label>
+                            <input type="text" class="form-control" id="option_four" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="qtn_ans" class="form-label">Answer</label>
+                            <input type="text" class="form-control" id="qtn_ans" required>
+                          </div>
+                          <div class="d-grid ">
+                            <input class="btn btn-success" type="submit" value="Submit">
                             </div>
                         </form>
                     </div>
@@ -185,3 +159,86 @@
         </div>
     </body>
 </html>
+
+
+
+<script>
+
+
+    url = $(location).attr('href');
+    console.log(url)
+    splitUrl = url.split('/')
+
+
+    subjectName = splitUrl[splitUrl.length - 3].replace("#", " ").toLowerCase()
+    semName = splitUrl[splitUrl.length - 2].replace("#", " ").toLowerCase()
+    paperCode = splitUrl[splitUrl.length - 1].replace("#", " ")
+
+    // console.log(subjectName, paperName, paperCode)
+
+
+    capStraing = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase()
+    word = subjectName.split(" ").map(capStraing)
+    capitalSub = word.join(" ")
+
+    capStraing = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase()
+    word = semName.split(" ").map(capStraing)
+    capitalSem = word.join(" ")
+
+
+
+    $("#subName").text(capitalSub)
+    $("#semName").text(capitalSem)
+    $("#PapCode").text(paperCode)
+
+    
+
+
+    $("#qtnForm").on("submit", function(e) {
+        e.preventDefault()
+
+        question = $("#examQtnInp").val().toLowerCase()
+        option_one = $("#option_one").val().toLowerCase()
+        option_two = $("#option_two").val().toLowerCase()
+        option_three = $("#option_three").val().toLowerCase()
+        option_four = $("#option_four").val().toLowerCase()
+        qtn_ans = $("#qtn_ans").val().toLowerCase()
+
+
+        sub = $("#subName").text().toLowerCase()
+        semName = $("#semName").text().toLowerCase()
+        paperCode = $("#PapCode").text().toLowerCase()
+
+        console.log(sub, semName, paperCode)
+        console.log(question, option_one, option_two, option_three, option_four, qtn_ans)
+
+        $.ajax({
+            url: "uploadQtn.php",
+            type: "POST",
+            data: {
+                "subName": sub,
+                "semName": semName,
+                "paperCode" : paperCode,
+                "qtn": question,
+                "op_one": option_one,
+                "op_two": option_two,
+                "op_three": option_three,
+                "op_four": option_four,
+                "qtnn_ans": qtn_ans,
+            },
+            success: function(data) {
+                console.log(data)
+                if(data == "Success") {
+
+                    $('#qtnForm').trigger("reset");
+                    alert("Question Insert Successfully")
+                }
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
+
+    })
+
+</script>

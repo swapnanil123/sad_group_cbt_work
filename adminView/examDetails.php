@@ -126,24 +126,24 @@
 					                                <div class="card shadow-lg border-0 rounded-lg mt-5">
 					                                    <div class="card-header"><h3 class="text-center font-weight-light my-4" id="examName"></h3></div>
 					                                    <div class="card-body">
-					                                        <form id="examCreateForm" autocomplete="off">
+					                                        <form id="examCreateForm" autocomplete="off" >
 					                                            <div class="form-floating mb-3">
-					                                                <input class="form-control shadow-none" id="paperName" type="text" placeholder="name@example.com" />
+					                                                <input class="form-control shadow-none" id="paperName" type="text" placeholder="name@example.com" required />
 					                                                <label for="paperName">Paper Name</label>
 					                                            </div>
 					                                            <div class="form-floating mb-3">
-					                                                <input class="form-control shadow-none" id="paperCode" type="text" placeholder="Password" />
+					                                                <input class="form-control shadow-none" id="paperCode" type="text" placeholder="Password" required />
 					                                                <label for="paperCode">Paper Code</label>
 					                                            </div>
-					                                            <select id="totalNoQtn" class="form-select form-select-sm mb-3 shadow-none" aria-label=".form-select-lg example">
-																  <option selected>Total number of questions</option>
+					                                            <select id="totalNoQtn" class="form-select form-select-sm mb-3 shadow-none">
+																  <option selected disabled>Total number of questions</option>
 																  <option value="10">10</option>
 																  <option value="20">20</option>
 																  <option value="30">30</option>
 																</select>
 
-																<select id="duration" class="form-select form-select-sm shadow-none" aria-label=".form-select-lg example">
-																  <option selected>Time in minutes</option>
+																<select id="duration" class="form-select form-select-sm shadow-none">
+																  <option selected disabled>Time in minutes</option>
 																  <option value="10">10 min</option>
 																  <option value="20">20 min</option>
 																  <option value="30">30 min</option>
@@ -215,29 +215,42 @@
 
         console.log(paperName, paperCode, totalNumberOfQtn, examDuration)
 
-        $.ajax({
-            url: "examCreate.php",
-            type: "POST",
-            data: {
-                "subject": subName,
-                "paperName": paperName,
-                "paperCode" : paperCode,
-                "totNoQtn": totalNumberOfQtn,
-                "duration": examDuration,
-            },
-            success: function(data) {
-                console.log(data)
-                if ( data == "successfully") {
-                    $('#examCreateForm').trigger("reset");
-                    alert("Exam Create Successfully")
-                }else {
-                    alert("Exam Create Unsuccessfull")
+        if (totalNumberOfQtn === null && examDuration === null) {
+
+            alert("Please Enter All the Fields Properly")
+
+        } else {
+            $.ajax({
+                url: "examCreate.php",
+                type: "POST",
+                data: {
+                    "subject": subName,
+                    "paperName": paperName,
+                    "paperCode" : paperCode,
+                    "totNoQtn": totalNumberOfQtn,
+                    "duration": examDuration,
+                },
+                success: function(data) {
+                    console.log(data)
+                    if ( data == "successfully") {
+                        $('#examCreateForm').trigger("reset");
+                        alert("Exam Create Successfully")
+
+                        subjectName = subName.replace(" ","#")
+                        paperName = paperName.replace(" ","#")
+
+                        window.location.href = "questionEntry.php?"+ "/" +subjectName + "/" + paperName + "/" + paperCode ;
+
+
+                    }else {
+                        alert("Exam Create Unsuccessfull")
+                    }
+                },
+                error: function(err) {
+                    console.log(err)
                 }
-            },
-            error: function(err) {
-                console.log(err)
-            }
-        })
+            })
+        }
     })
 
 </script>
