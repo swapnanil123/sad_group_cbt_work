@@ -277,15 +277,18 @@
     font-size: 22px;
     /* color: #F1EE00; */
     /* background-color: #515253; */
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 .successmsg {
-    position: absolute;
-    top: 50%;
+    position: relative;
+    /* top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* border: 1px solid black; */
-    width: 900px;
+    border: 1px solid black;
+    width: 900px; */
 }
 
 tr,th,td {
@@ -293,6 +296,14 @@ tr,th,td {
     border: 1px solid black;
     padding: 0 20px 0 20px ;
     width: 900px;
+}
+
+.mas {
+    height: 300px ;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -306,3 +317,5 @@ tr,th,td {
         opacity: 0;
     }
 }
+
+

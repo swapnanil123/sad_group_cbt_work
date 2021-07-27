@@ -194,7 +194,7 @@
 
 <script>
 
-url = $(location).attr('href');
+    url = $(location).attr('href');
     // console.log(url)
     splitUrl = url.split('/')
     subject= splitUrl[splitUrl.length - 1]
