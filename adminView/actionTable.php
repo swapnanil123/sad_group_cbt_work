@@ -268,12 +268,12 @@
 
         examRCode = exam_code
         subject = $("#tdSub_"+exam_code).text()
-        paperName = $("#tdPaperName_"+exam_code).text()
+        semName = $("#tdsemName_"+exam_code).text()
         paperCode = $("#tdPapeprCode_"+exam_code).text()
         duration = $("#tdDuration_"+exam_code).text()
         totQtn = $("#tdTotQtn_"+exam_code).text()
 
-        console.log(examRCode, subject, paperName, paperCode, duration, totQtn)
+        console.log(examRCode, subject, semName, semName, duration, totQtn)
 
 
         $.ajax({
@@ -284,7 +284,7 @@
 
                 "examCode": examRCode,
                 "subjectNam": subject,
-                "paperName": paperName,
+                "semName": semName,
                 "paperCode": paperCode,
                 "duration": duration,
                 "totQtn": totQtn,

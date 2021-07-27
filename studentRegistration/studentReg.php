@@ -30,7 +30,16 @@
                     </div>
                     <div class="form-group">
                         <label>Department</label>
-                        <input type="text" name="stddept" class="form-control shadow-none outline-none border-none" id="stdDept" placeholder=" " required>
+                        <!-- <input type="text" name="stddept" class="form-control shadow-none outline-none border-none" id="stdDept" placeholder=" " required> -->
+                        <select name="stddept" id="stdDept" class="form-control shadow-none outline-none border-none" required>
+                            <option value="" selected disabled>Selecte Semester </option>    
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Mathamatics">Mathamatics</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Bengali">Bengali</option>
+                            <option value="History">History</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Roll No.</label>
@@ -105,7 +114,7 @@
                         $('#stdRegForm').trigger("reset");
                         console.log(data)
                         alert("Successfully Registered")
-                        $("#submitBtn").prop('disabled', true);
+                        // $("#submitBtn").prop('disabled', true);
                     } else {
                         $('#stdRegForm').trigger("reset");
                         alert("Registration Unsuccessful");

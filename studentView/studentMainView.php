@@ -21,7 +21,7 @@
 
     <div class="container-fluid questionArea" >
         <div class="headContent container-fluid">
-            <span id="deptName">Computer Science</span>
+            <span id="subName">Computer Science</span>
             <span>Time Left : <span id="timer" ></span> </span>
         </div>
 
@@ -48,26 +48,17 @@
 
     <div class="successArea">
         <div class="successmsg">
-            <table class="">
-                <thead>
-                    <tr>
-                        <th>Total No. Questions</th>
-                        <th>Totale Attempted</th>
-                        <th>Totale Not Attempted</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td id="totQ">00</td>
-                    <td id="totAQ">00</td>
-                    <td id="totNAQ">00</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="areaOfMas">
+            
+                <div class="mas alert alert-success">
+                    <span>You have Successfully Complete the Test</span>
+                </div>
 
-            <div class="btnArea">
-                <input type="submit" class="closeBTN" name="closeBtn" id="closeBtn" value="Close">
-            </div>
+                <div class="btnArea">
+                    <input type="submit" class="closeBTN" name="closeBtn" id="closeBtn" value="Close">
+                </div>
+
+            </div>  
         </div> 
     </div>
 
@@ -83,10 +74,22 @@
     $(document).ready(function() {
         // var form = $('#questionForm')
 
+        url = $(location).attr('href');
+        console.log(url)
+        splitUrl = url.split('/')
+        exam_code= splitUrl[splitUrl.length - 4]
+        subjecName = splitUrl[splitUrl.length - 2].replace("#", " ")
+        console.log(exam_code)
+
+
         $.ajax({
 
             url: 'questionFetch.php',
             type: 'post',
+            data: {
+                "exam_code": exam_code,
+                "subjecName": subjecName,
+            },
             success: function(data) {
                 $('#questionForm').html(data);
                 console.log("Hi")
@@ -118,7 +121,7 @@
                 sec = '00'
                 console.log("Time Up")
 
-                // FormSubmit();
+                FormSubmit();
             }else if (min == 0) {
                 $('#timer').addClass('blinking')
             }
@@ -133,6 +136,9 @@
         
 
         // timmer function
+
+
+        $(".successArea").fadeOut();
 
     })
 
@@ -158,7 +164,7 @@
 
 
     stdName = $('#stdName').text(name)
-    detpName = $('#deptName').text(dept)
+    detpName = $('#subName').text(dept)
     console.log("std name => " + name + "\n" + "dept name =>" + dept)
 
 
@@ -166,8 +172,10 @@
 
     function FormSubmit() {
 
+        
+
         formData = $('form').serializeArray()
-        console.log(formData)
+        console.log(formData, exam_code)
 
         $.each(formData, function(i, field){
             // $("#results").append(field.name + ":" + field.value + " ");
@@ -188,7 +196,8 @@
                     "answer": value,
                     "roll": roll,
                     "stdName": name,
-                    "dpet": dept
+                    "subject": dept,
+                    "exam_code": exam_code,
                 },
                 success: function(data) {
                     console.log('Currect Ans => ' + data)

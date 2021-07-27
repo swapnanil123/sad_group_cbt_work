@@ -13,6 +13,10 @@ $result = mysqli_fetch_row($query);
 
 // echo json_encode($result);
 
+$qrr = "select * from studentlogindata where std_roll = '".$stdID."' ";
+$sql = mysqli_query($con, $qrr);
+$res = mysqli_fetch_row($sql);
+
 $stdInfo = array(
     "id" => $result[0],
     "name" => $result[1],
@@ -20,8 +24,8 @@ $stdInfo = array(
     "dept" => $result[3],
     "course" => $result[4],
     "sem" => $result[5],
-    "session" => $result[6]
-
+    "session" => $result[6],
+    "exam_code" => $res[1],
 );
 
 echo json_encode($stdInfo);
