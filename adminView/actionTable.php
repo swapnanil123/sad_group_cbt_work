@@ -177,7 +177,7 @@
             url: "examInfoFetch.php",
             method: "POSt",
             success: function(data) {
-                console.log(data)
+                // console.log(data)
                 $("#tableBody").append(data)
 
                 x = document.querySelectorAll(".examCodeID")
@@ -186,7 +186,7 @@
                     arr.push(tex)
                 }
                 
-                console.log(arr)
+                // console.log(arr)
 
                 for (i=0; i<arr.length; i++) {
 
@@ -199,16 +199,20 @@
                             "code": arr[i].replace(" ", ""),
                         },
                         success: function(data) {
-                            // console.log(data)
+                            console.log(data)
 
-                            var obj = $.parseJSON(data);
                             
-                            console.log(obj)
-                            tr = $("#startBtn_"+obj).val()
-                            console.log(tr)
-                            $("#startBtn_"+obj).val("Running...")
-                            $("#startBtn_"+obj).prop('disabled', true)
-                            $("#stopBtn_"+obj).prop('disabled', false)
+                            if (data != "error") {
+                                // var obj = $.parseJSON(data);
+                            
+                                // console.log(obj)
+                                tr = $("#startBtn_"+data).val()
+                                // console.log(tr)
+                                $("#startBtn_"+data).val("Running...")
+                                $("#startBtn_"+data).prop('disabled', true)
+                                $("#stopBtn_"+data).prop('disabled', false)
+                            }
+                            
                             
                         },
                         error: function(err) {
@@ -327,6 +331,22 @@
                 console.log(err)
             }
         })
+
+    }
+
+
+
+    function fetchQtn(id) {
+        
+        examCode = id.split("_")[1]
+        subjectName = $("#tdSub_"+examCode).text()
+        trimSub = $.trim(subjectName).replace(" ", "#")
+        console.log(examCode, trimSub)
+
+        window.location.href = "questionAnswer.php?"+ "/" + examCode + "/" + trimSub;
+
+        
+
 
     }
 

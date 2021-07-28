@@ -16,7 +16,7 @@ if ( $allQuestions > 0) {
 ?>
         
         <tr id="trID_<?php echo $result['exam_serial_no'] ?>">
-            <td id= "tdExamCode_<?php echo $result['exam_serial_no'] ?> "> <?php echo $result['exam_serial_no'] ?> </td>
+            <td id= "tdExamCode_<?php echo $result['exam_serial_no'] ?> "> <?php echo $result['exam_serial_no'] ?>&nbsp; <i style="cursor: pointer" class="fa fa-eye showIcon" id="show_<?php echo $result['exam_serial_no'] ?>" onclick="fetchQtn(this.id)"></i> </td>
             <td id= "tdSub_<?php echo $result['exam_serial_no'] ?>"> <?php echo $result['subject_name'] ?> </td>
             <td id= "tdsemName_<?php echo $result['exam_serial_no'] ?>"> <?php echo $result['sem_name'] ?> </td>
             <td id= "tdPapeprCode_<?php echo $result['exam_serial_no'] ?>"> <?php echo $result['paper_code'] ?> </td>

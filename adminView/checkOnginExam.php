@@ -13,9 +13,11 @@ $result = mysqli_fetch_array($query);
 $numberOfUser = mysqli_num_rows($query);
 
 if ($numberOfUser > 0) {
-    echo json_encode($result['exam_code']);
+
+    echo $result['exam_code'];
 
 } else {
+
     echo "error";
 }
         
