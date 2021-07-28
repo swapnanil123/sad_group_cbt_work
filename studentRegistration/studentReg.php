@@ -26,19 +26,28 @@
                 <div class="">
                     <div class="form-group">
                         <label for="stdname">Name</label>
-                        <input type="text" name="stdname" class="form-control shadow-none outline-none border-none" id="stdname" placeholder=" ">
+                        <input type="text" name="stdname" class="form-control shadow-none outline-none border-none" id="stdname" placeholder=" " required>
                     </div>
                     <div class="form-group">
                         <label>Department</label>
-                        <input type="text" name="stddept" class="form-control shadow-none outline-none border-none" id="stdDept" placeholder=" ">
+                        <!-- <input type="text" name="stddept" class="form-control shadow-none outline-none border-none" id="stdDept" placeholder=" " required> -->
+                        <select name="stddept" id="stdDept" class="form-control shadow-none outline-none border-none" required>
+                            <option value="" selected disabled>Selecte Semester </option>    
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Mathamatics">Mathamatics</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Bengali">Bengali</option>
+                            <option value="History">History</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Roll No.</label>
-                        <input type="text" name="stdroll" class="form-control shadow-none outline-none border-none" id="stdRoll" placeholder=" ">
+                        <input type="text" name="stdroll" class="form-control shadow-none outline-none border-none" id="stdRoll" placeholder=" " required>
                     </div>
                     <div class="form-group">
                         <label >Course</label>
-                        <select name="stdcourse" id="stdCourse" class="form-control shadow-none outline-none border-none">
+                        <select name="stdcourse" id="stdCourse" class="form-control shadow-none outline-none border-none" required>
                             <option value="" selected disabled>Selecte Course </option>
                             <option value="Honours">Honours</option>
                             <option value="General">General</option>
@@ -46,7 +55,7 @@
                     </div>
                     <div class="form-group">
                         <label >Semester</label>
-                        <select name="stdsem" id="stdSem" class="form-control shadow-none outline-none border-none">
+                        <select name="stdsem" id="stdSem" class="form-control shadow-none outline-none border-none" required>
                             <option value="" selected disabled>Selecte Semester </option>    
                             <option value="semester 1">Semester 1</option>
                             <option value="semester 2">Semester 2</option>
@@ -58,7 +67,7 @@
                     </div>
                     <div class="form-group">
                         <label>Session</label>
-                        <input type="text" name="stdses" class="form-control shadow-none outline-none border-none" id="stdSes" placeholder=" ">
+                        <input type="text" name="stdses" class="form-control shadow-none outline-none border-none" id="stdSes" placeholder=" " required>
                     </div>
                     <div class="form-group">
                         <input type="submit" name="submitbtn" class="form-control shadow-none outline-none border-none btn btn-success" id="submitBtn" placeholder=" ">
@@ -77,13 +86,13 @@
     $("#stdRegForm").on("submit",function(e) {    
         e.preventDefault()
 
-        name = $("#stdname").val()
-        dept = $("#stdDept").val()
-        roll = $("#stdRoll").val()
-        course = $("#stdCourse").val()
-        sem = $("#stdSem").val()
-        session = $("#stdSes").val()
-        console.log(name, dept, roll, course, sem, session)
+        name = $("#stdname").val().toLowerCase()
+        dept = $("#stdDept").val().toLowerCase()
+        roll = $("#stdRoll").val().toLowerCase()
+        course = $("#stdCourse").val().toLowerCase()
+        sem = $("#stdSem").val().toLowerCase()
+        session = $("#stdSes").val().toLowerCase()
+        // console.log(name, dept, roll, course, sem, session)
 
         if(name != "" && dept != "" && roll != "" && course != "" && sem != "" && session != "") {
 
@@ -100,11 +109,12 @@
                     "session": session,
                 },
                 success: function(data) {
+                    console.log(data)
                     if (data == "successfully") {
                         $('#stdRegForm').trigger("reset");
                         console.log(data)
                         alert("Successfully Registered")
-                        $("#submitBtn").prop('disabled', true);
+                        // $("#submitBtn").prop('disabled', true);
                     } else {
                         $('#stdRegForm').trigger("reset");
                         alert("Registration Unsuccessful");

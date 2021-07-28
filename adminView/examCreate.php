@@ -3,14 +3,15 @@
 include_once("db_connect.php");
 
 $subject = $_POST['subject'];
-$paperName = $_POST['paperName'];
+$course = $_POST['course'];
+$semName = $_POST['semName'];
 $paperCode = $_POST['paperCode'];
 $totalQtn = $_POST['totNoQtn'];
 $duration = $_POST['duration'];
 
 
-$sql = "INSERT INTO examcreatedetails (`subject_name`, `paper_name`, `paper_code`, `number_of_question`, `exam_duration`)
-        VALUES ('".$subject."','".$paperName."','".$paperCode."','".$totalQtn."','".$duration."')";
+$sql = "INSERT INTO examcreatedetails (`subject_name`, `sem_name`, `paper_code`, `course`, `number_of_question`, `exam_duration`)
+        VALUES ('".$subject."','".$semName."','".$paperCode."', '".$course."', '".$totalQtn."','".$duration."')";
 
 // $query = mysqli_query($con, $sql);
 

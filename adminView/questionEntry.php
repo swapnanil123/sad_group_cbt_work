@@ -6,10 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Question Details</title>
-        <link href="styles.css" rel="stylesheet" />
+        <title>Exam Details</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet" />
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -111,88 +113,132 @@
                     </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content">
-                <main class="container-fluid px-4">
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Question Details</h1>
-                        <div class="row">
-                        	<div id="layoutAuthentication">
-					            <div id="layoutAuthentication_content">
-					                <main>
-					                    <div class="container">
-					                        <div class="row justify-content-center">
-					                            <div class="col-lg-5">
-					                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-					                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Question Details</h3></div>
-					                                    <div class="card-body">
-                                                            <!--form -->
-					                                        <form id="examdetails" autocomplete="off">
-					                                            <div class="form-floating mb-3">
-					                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-					                                                <label for="inputEmail">Question</label>
-					                                            </div>
-					                                            <div class="form-floating mb-3">
-					                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
-					                                                <label for="inputPassword">Option 1</label>
-					                                            </div>
-                                                                <div class="form-floating mb-3">
-                                                                    <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
-                                                                    <label for="inputPassword">Option 2</label>
-                                                                </div>
-                                                                <div class="form-floating mb-3">
-                                                                    <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
-                                                                    <label for="inputPassword">Option 3</label>
-                                                                </div>
-                                                                <div class="form-floating mb-3">
-                                                                    <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
-                                                                    <label for="inputPassword">Option 4</label>
-                                                                </div>
-					                                            
-					                                            
-					                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-					                                                
-					                                                <a class="btn btn-primary">Submit</a>
-					                                            </div>
-					                                        </form>
-					                                    </div>
-					                                </div>
-					                            </div>
-					                        </div>
-					                    </div>
-					                </main>
-					            </div>
-					            <div id="layoutAuthentication_footer">
-					                <footer class="py-4 bg-light mt-auto">
-					                    <div class="container-fluid px-4">
-					                        <div class="d-flex align-items-center justify-content-between small">
-					                            <div class="text-muted">Copyright &copy; SAD</div>
-					                            <div>
-					                                <a href="#">Privacy Policy</a>
-					                                &middot;
-					                                <a href="#">Terms &amp; Conditions</a>
-					                            </div>
-					                        </div>
-					                    </div>
-					                </footer>
-					            </div>
-					        </div>
-					        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-					        <script src="js/scripts.js"></script>
-					    </div>
-					</div>
-				</main>
-			</div>
-		</div>
-	</body>
+            <div id="layoutSidenav_content" class="m-4 container-fluid">
+                <main>
+                    <div class="shadow-lg p-3  bg-body rounded">
+                        <form id="qtnForm" autocomplete="off">
+
+                            <div class="d-flex p-2 justify-content-between bd-highlight bg-warning rounded">
+                                <div>Subject : <strong><span id="subName"></span></strong></div>
+                                <div>Semester Name : <strong><span id="semName"></span></strong></div>
+                                <div>Paper Code : <strong><span id="PapCode"></span></strong></div>
+                            </div><br>
+                        
+                            <div class="mb-1">
+                            
+                            <label for="examQtnInp" class="mb-1">Question</label>
+                            <input type="text" class="form-control" id="examQtnInp"  placeholder="Type a question here..." required>
+                          </div>
+                          <div class="mb-1">
+                            <label for="option_one" class="form-label">Option 1</label>
+                            <input type="text" class="form-control" id="option_one" required>
+                          </div>
+                          <div class="mb-1">
+                            <label for="option_two" class="form-label">Option 2</label>
+                            <input type="text" class="form-control" id="option_two" required>
+                          </div>
+                          <div class="mb-1">
+                            <label for="option_three" class="form-label">Option 3</label>
+                            <input type="text" class="form-control" id="option_three" required>
+                          </div>
+                          <div class="mb-1">
+                            <label for="option_four" class="form-label">Option 4</label>
+                            <input type="text" class="form-control" id="option_four" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="qtn_ans" class="form-label">Answer</label>
+                            <input type="text" class="form-control" id="qtn_ans" required>
+                          </div>
+                          <div class="d-grid ">
+                            <input class="btn btn-success" type="submit" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
 </html>
 
 
-<script type="text/javascript">
-    $("examdetails").on("submit",function(e){
+
+<script>
+
+
+    url = $(location).attr('href');
+    console.log(url)
+    splitUrl = url.split('/')
+
+
+    subjectName = splitUrl[splitUrl.length - 3].replace("#", " ").toLowerCase()
+    semName = splitUrl[splitUrl.length - 2].replace("#", " ").toLowerCase()
+    paperCode = splitUrl[splitUrl.length - 1].replace("#", " ")
+
+    // console.log(subjectName, paperName, paperCode)
+
+
+    capStraing = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase()
+    word = subjectName.split(" ").map(capStraing)
+    capitalSub = word.join(" ")
+
+    capStraing = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase()
+    word = semName.split(" ").map(capStraing)
+    capitalSem = word.join(" ")
+
+
+
+    $("#subName").text(capitalSub)
+    $("#semName").text(capitalSem)
+    $("#PapCode").text(paperCode)
+
+    
+
+
+    $("#qtnForm").on("submit", function(e) {
         e.preventDefault()
 
-        quesno = $("#examdetails").val()
-        console.log(quesno)
-        window.location.href = "exam_entry.html?"+ "/" + quesno;
+        question = $("#examQtnInp").val().toLowerCase()
+        option_one = $("#option_one").val().toLowerCase()
+        option_two = $("#option_two").val().toLowerCase()
+        option_three = $("#option_three").val().toLowerCase()
+        option_four = $("#option_four").val().toLowerCase()
+        qtn_ans = $("#qtn_ans").val().toLowerCase()
+
+
+        sub = $("#subName").text().toLowerCase()
+        semName = $("#semName").text().toLowerCase()
+        paperCode = $("#PapCode").text().toLowerCase()
+
+        console.log(sub, semName, paperCode)
+        console.log(question, option_one, option_two, option_three, option_four, qtn_ans)
+
+        $.ajax({
+            url: "uploadQtn.php",
+            type: "POST",
+            data: {
+                "subName": sub,
+                "semName": semName,
+                "paperCode" : paperCode,
+                "qtn": question,
+                "op_one": option_one,
+                "op_two": option_two,
+                "op_three": option_three,
+                "op_four": option_four,
+                "qtnn_ans": qtn_ans,
+            },
+            success: function(data) {
+                console.log(data)
+                if(data == "Success") {
+
+                    $('#qtnForm').trigger("reset");
+                    alert("Question Insert Successfully")
+                }
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
+
     })
+
 </script>

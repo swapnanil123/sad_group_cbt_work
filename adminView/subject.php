@@ -209,7 +209,7 @@
         subjectName = document.getElementById(div_id).innerText;
         subject = subjectName.replace(" ","#")
         console.log(subject)
-        window.location.href = "examDetails.php?"+ "/" + subject;
+        window.location.href = "examDetailsEntry.php?"+ "/" + subject;
         
     }
 
