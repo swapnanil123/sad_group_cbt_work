@@ -7,15 +7,16 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Exam Details</title>
-        <link href="styles.css" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet" />
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="./../adminView/adminHome.php">Admin Panel</a>
+            <a class="navbar-brand ps-3" href="index.html">Admin Panel</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -112,110 +113,114 @@
                     </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content">
+            <div id="layoutSidenav_content" class="m-5 mt-0 container-fluid">
+                <div class=" mt-4 p-1 alert alert-secondary" style="font-size:22px" ><strong> Subject : <span id="SubName"></span></strong></div>
                 <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Exam Details</h1>
-                        <div class="row">
-                        	<div id="layoutAuthentication">
-					            <div id="layoutAuthentication_content">
-					                <main>
-					                    <div class="container">
-					                        <div class="row justify-content-center">
-					                            <div class="col-lg-5">
-					                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-					                                    <div class="card-header"><h3 class="text-center font-weight-light my-4" id="examName"></h3></div>
-					                                    <div class="card-body">
-					                                        <form id="examCreateForm" autocomplete="off" >
-					                                            <div class="form-floating mb-3">
-					                                                <input class="form-control shadow-none" id="paperName" type="text" placeholder="name@example.com" required />
-					                                                <label for="paperName">Paper Name</label>
-					                                            </div>
-					                                            <div class="form-floating mb-3">
-					                                                <input class="form-control shadow-none" id="paperCode" type="text" placeholder="Password" required />
-					                                                <label for="paperCode">Paper Code</label>
-					                                            </div>
-					                                            <select id="totalNoQtn" class="form-select form-select-sm mb-3 shadow-none">
-																  <option selected disabled>Total number of questions</option>
-																  <option value="10">10</option>
-																  <option value="20">20</option>
-																  <option value="30">30</option>
-																</select>
-
-																<select id="duration" class="form-select form-select-sm shadow-none">
-																  <option selected disabled>Time in minutes</option>
-																  <option value="10">10 min</option>
-																  <option value="20">20 min</option>
-																  <option value="30">30 min</option>
-																</select>
-					                                            
-					                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-					                                                
-					                                                <!-- <a class="btn btn-primary" href="index.html">Submit</a> -->
-                                                                    <input type="submit" class="btn btn-primary shadow-none" name="submitBtn" id="formSubmit" value="Submit">
-					                                            </div>
-					                                        </form>
-					                                    </div>
-					                                    <div class="card-footer text-center py-3">
-					                                        <div class="small"><a href="adminHome.php">Admin Panel</a></div>
-					                                    </div>
-					                                </div>
-					                            </div>
-					                        </div>
-					                    </div>
-					                </main>
-					            </div>
-					            <div id="layoutAuthentication_footer">
-					                <footer class="py-4 bg-light mt-auto">
-					                    <div class="container-fluid px-4">
-					                        <div class="d-flex align-items-center justify-content-between small">
-					                            <div class="text-muted">Copyright &copy; SAD</div>
-					                            <div>
-					                                <a href="#">Privacy Policy</a>
-					                                &middot;
-					                                <a href="#">Terms &amp; Conditions</a>
-					                            </div>
-					                        </div>
-					                    </div>
-					                </footer>
-					            </div>
-					        </div>
-					        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-					        <script src="js/scripts.js"></script>
-					    </div>
-					</div>
-				</main>
-			</div>
-		</div>
-	</body>
+                    <div class="shadow-lg p-3 mb-3 bg-body rounded">
+                        <form id="examCreateForm" autocomplete="off">
+                          <!--<div class="mb-1">
+                            <div class="d-flex  bd-highlight bg-warning rounded">
+                                <label for="exampleInputEmail1" class="form-label">Subject : </label>
+                            </div><br>
+                            <label class="form-label fs-6"><b>Paper</b></label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Type a question here...">
+                          </div>-->
+                            <div class="mb-3">
+                                <label for="paperCode" class="form-label fs-6"><b>Paper Code </b></label>
+                                <input type="text" class="form-control" id="paperCode" aria-describedby="emailHelp" required>
+                            </div>
+                    
+                            <div class="mb-3">
+                            <label class="form-label fs-6"><b>Course</b></label>
+                            <select class="form-select form-select-sm " aria-label=".form-select-lg example" id="course">
+                                    <option selected disabled>Select</option>
+                                    <option value="Core Course" id="Core Course">Core Course (CC)</option>
+                                    <option value="General" id="General">General</option>
+                                    <option value="General Elective" id="General Elective">General Elective (GE)</option>
+                                    <option value="Skill Enhancement Course" id="SEC">Skill Enhancement Course (SEC)</option>
+                                    <option value="Discipline Specific Elective" id="DSE">Discipline Specific Elective (DSE)</option>
+                                    <option value="Ability Enhancement Compulsory Course" id="AECC">Ability Enhancement Compulsory Course (AECC)</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fs-6"><b>Semester</b></label>
+                                <select class="form-select form-select-sm " aria-label=".form-select-lg example" id="semName">
+                                    <option selected disabled>Select</option>
+                                    <option value="Semester 1" id="1">Semester 1</option>
+                                    <option value="Semester 2" id="2">Semester 2</option>
+                                    <option value="Semester 3" id="3">Semester 3</option>
+                                    <option value="Semester 4" id="4">Semester 4</option>
+                                    <option value="Semester 5" id="5">Semester 5</option>
+                                    <option value="Semester 6" id="6">Semester 6</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fs-6"><b>Total number of questions</b></label>
+                                <select class="form-select form-select-sm " aria-label=".form-select-lg example" id="totalNoQtn">
+                                    <option selected disabled>Select</option>
+                                    <option value="10" id="10">10</option>
+                                    <option value="20" id="20">20</option>
+                                    <option value="30" id="30">30</option>
+                                    <option value="40" id="40">40</option>
+                                    <option value="50" id="50">50</option>
+                                    <option value="60" id="60">60</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fs-6"><b>Total time allotted (in minutes)</b></label>
+                                <select class="form-select form-select-sm " aria-label=".form-select-lg example" id="duration">
+                                    <option selected disabled>Select</option>
+                                    <option value="10" id="10">10</option>
+                                    <option value="20" id="20">20</option>
+                                    <option value="30" id="30">30</option>
+                                    <option value="40" id="40">40</option>
+                                    <option value="50" id="50">50</option>
+                                    <option value="60" id="60">60</option>
+                                </select>                          
+                            </div>
+                            <div class="d-grid gap-2 mt-4">
+                                <input class="btn btn-primary" type="submit" value="Create">
+                            </div>
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
 </html>
+
 
 
 
 <script>
 
-
     url = $(location).attr('href');
     // console.log(url)
     splitUrl = url.split('/')
     subject= splitUrl[splitUrl.length - 1]
-    subName = subject.replace("#"," ")
-    console.log(subName)
+    subName = subject.replace("#"," ").toLowerCase()
+    // console.log(subName)
 
 
-    $("#examName").text(subName)
+    capStraing = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase()
+    word = subName.split(" ").map(capStraing)
+    capitalSent = word.join(" ")
+    $("#SubName").text(capitalSent)
+
 
     $("#examCreateForm").on("submit", function(e) {
         e.preventDefault()
 
-        paperName = $("#paperName").val()
-        paperCode = $("#paperCode").val()
-        totalNumberOfQtn = $("#totalNoQtn").val()
-        examDuration = $("#duration").val()
 
-        console.log(paperName, paperCode, totalNumberOfQtn, examDuration)
+        course = $("#course").val().toLowerCase().toLowerCase()
+        semName = $("#semName").val().toLowerCase()
+        paperCode = $("#paperCode").val().toLowerCase()
+        totalNumberOfQtn = $("#totalNoQtn").val().toLowerCase()
+        examDuration = $("#duration").val().toLowerCase()
 
-        if (totalNumberOfQtn === null && examDuration === null) {
+        console.log(course, semName, paperCode, totalNumberOfQtn, examDuration)
+
+        if (totalNumberOfQtn === null || examDuration === null || course === null || semName === null) {
 
             alert("Please Enter All the Fields Properly")
 
@@ -225,7 +230,8 @@
                 type: "POST",
                 data: {
                     "subject": subName,
-                    "paperName": paperName,
+                    "course": course,
+                    "semName": semName,
                     "paperCode" : paperCode,
                     "totNoQtn": totalNumberOfQtn,
                     "duration": examDuration,
@@ -237,9 +243,10 @@
                         alert("Exam Create Successfully")
 
                         subjectName = subName.replace(" ","#")
-                        paperName = paperName.replace(" ","#")
+                        semName = semName.replace(" ","#")
+                        paperCode = paperCode.replace(" ","#")
 
-                        window.location.href = "questionEntry.php?"+ "/" +subjectName + "/" + paperName + "/" + paperCode ;
+                        window.location.href = "questionEntry.php?"+ "/" +subjectName + "/" + semName + "/" + paperCode ;
 
 
                     }else {

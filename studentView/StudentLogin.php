@@ -25,11 +25,11 @@
         <div class="instructionArea container-fluid">
             <div class="sysName">
                 <span>Depertment :</span>
-                <span>Paper Name :</span>
+                <span>Paper Code :</span>
             </div>
             <div class="numberAndName container-fluid">
-                <span class="SysNo">Computer Science</span>
-                <span>Data structure</span>
+                <span class="SysNo" id="subName"> </span>
+                <span id="paperCode"> </span>
             </div>
         </div>
     </div>
@@ -39,14 +39,14 @@
        <form autocomplete="off" id="stuloginForm">
            <div class="form-group userInfo">
                 <i class="fa fa-user"></i>
-                <input type="text" class="shadow-none form-control userInp" name="username" id="user" placeholder="Username">
+                <input type="text" class="shadow-none form-control userInp" name="username" id="user" placeholder="Enter Your User Id Here">
            </div>
-           <div class="form-group userInfo">
+           <!-- <div class="form-group userInfo">
                 <i class="fa fa-lock"></i>
                 <input type="password" class="shadow-none form-control userInp" name="password" id="pass" placeholder="Password">
-           </div>
+           </div> -->
            <div class="form-group submitArea">
-                <input type="button" class="form-control subBtn border border-secondary shadow-none" name="submit" id="submitBtn" value="Sign in">
+                <input type="button" class="form-control subBtn border border-secondary shadow-none" name="submit" id="submitBtn" value="Start">
                 <!-- <button type="submit" class="form-control subBtn border-none shadow-none" name="submit" id="submitBtn">Sign in</button> -->
            </div>
        </form>
@@ -61,23 +61,54 @@
 <script>
 
 $(document).ready(function() {
+
+    $.ajax({
+        url: "getEXamNameAndCode.php",
+        type: "POST",
+        success: function(data) {
+            console.log(data)
+            splitData = data.split("#")
+            msg= splitData[splitData.length - 3]
+            subName = splitData[splitData.length - 2]
+            paperCode = splitData[splitData.length - 1]
+            console.log(msg, subName, paperCode)
+
+
+            if (msg == "success") {
+                $("#subName").text(subName)
+                $("#paperCode").text(paperCode)
+            }else {
+                alert("Exam Not Started...")
+            }
+        },
+        error: function(err) {
+            console.log(err)
+        }
+    });
+
+
+
+
+
     $('#submitBtn').on('click', function(){
+        var paperCode = $("#paperCode").text()
+
         var user = $('#user').val();
         var pass = $('#pass').val();
 
         if(user.length == "") {
 
-            $('#massage').text("Please Enter Username and Password");
-            setTimeout(function(){ 
+            $('#massage').text("Please Enter your User Id");
+            setTimeout(function(){
                 $('#massage').fadeOut();
             }, 10000);
 
-        }else if(pass.length == "") {
+        // }else if(pass.length == "") {
 
-            $('#massage').text("Please Enter Password");
-            setTimeout(function(){ 
-                $('#massage').fadeOut();
-            }, 10000);
+        //     $('#massage').text("Please Enter Password");
+        //     setTimeout(function(){ 
+        //         $('#massage').fadeOut();
+        //     }, 10000);
 
         }else {
 
@@ -85,17 +116,17 @@ $(document).ready(function() {
                 url: 'StudentLoginAuth.php',
                 method: 'POST',
                 data: {
-                    username: user,
-                    password: pass
+                    "username": user,
+                    "paperCode": paperCode,
                 },
                 success: function(data){
                     // alert(data)
                     var res = data.split("#");
-                    console.log(res[0], res[1], res[2], res[3])
+                    console.log(res[0], res[1], res[2])
 
                     if (res[0] == 'success') {
-                        window.location.href = "instructionPage.php?"+ "/" + res[3];
-                        // alert(data)
+                        window.location.href = "instructionPage.php?"+ "/" + res[2];
+                        // alert(res[1])
                     } else {
                         $('#massage').text(data);
                         setTimeout(function(){

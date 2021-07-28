@@ -2,7 +2,10 @@
 
 include_once("db_connect.php");
 
-$q = 'select * from questions';
+$examCode =$_POST['exam_code'];
+$subjectName =$_POST['subjecName'];
+
+$q = 'select * from questiondetails where exam_code = "'.$examCode.'" and subject_name = "'.$subjectName.'" ' ;
 
 $query = mysqli_query($con, $q);
 $allQuestions = mysqli_num_rows($query);
@@ -17,7 +20,7 @@ if ( $allQuestions > 0) {
             <div class="formContent" id="questionNumber_<?php echo $result['id'] ?>">
                 <div class="qst">
                     <div class="questionContent" id="qstArea">
-                        <strong> Q<?php echo $i ?>. <span id="questionsText_<?php echo $result['id']?>"> <?php echo $result['questionName'] ?> </span></strong>
+                        <strong> Q<?php echo $i ?>. <span id="questionsText_<?php echo $result['id']?>"> <?php echo $result['question'] ?> </span></strong>
                     </div>
                     <div class="clearContent">
                         <div id="clearResponse_<?php echo $result['id'] ?>" class="clearBtn"> 
@@ -29,20 +32,20 @@ if ( $allQuestions > 0) {
                 <div class="options">
                     
                     <div>
-                        <input type="radio" name="option_<?php echo $result['id'] ?>" id="optionsOne_<?php echo $result['id'] ?>" class="fromWrapper" value="<?php echo $result['optionOne'] ?>#<?php echo $result['id'] ?>"> 
-                        <label for="optionsOne_<?php echo $result['id'] ?>" class="fromWrapper" id="questionsLable"><?php echo $result['optionOne'] ?></label>
+                        <input type="radio" name="option_<?php echo $result['id'] ?>" id="optionsOne_<?php echo $result['id'] ?>" class="fromWrapper" value="<?php echo $result['option_1'] ?>#<?php echo $result['id'] ?>"> 
+                        <label for="optionsOne_<?php echo $result['id'] ?>" class="fromWrapper" id="questionsLable"><?php echo $result['option_1'] ?></label>
                     </div>
                     <div>
-                        <input type="radio" name="option_<?php echo $result['id'] ?>" id="optionsTwo_<?php echo $result['id'] ?>" class="fromWrapper" value="<?php echo $result['optionTwo'] ?>#<?php echo $result['id'] ?>"> 
-                        <label for="optionsTwo_<?php echo $result['id'] ?>" class="fromWrapper" id="questionsLable"><?php echo $result['optionTwo'] ?></label>
+                        <input type="radio" name="option_<?php echo $result['id'] ?>" id="optionsTwo_<?php echo $result['id'] ?>" class="fromWrapper" value="<?php echo $result['option_2'] ?>#<?php echo $result['id'] ?>"> 
+                        <label for="optionsTwo_<?php echo $result['id'] ?>" class="fromWrapper" id="questionsLable"><?php echo $result['option_2'] ?></label>
                     </div>
                     <div>
-                        <input type="radio" name="option_<?php echo $result['id'] ?>" id="optionsThree_<?php echo $result['id'] ?>" class="fromWrapper" value="<?php echo $result['optionThree'] ?>#<?php echo $result['id'] ?>"> 
-                        <label for="optionsThree_<?php echo $result['id'] ?>" class="fromWrapper" id="questionsLable"><?php echo $result['optionThree'] ?></label>
+                        <input type="radio" name="option_<?php echo $result['id'] ?>" id="optionsThree_<?php echo $result['id'] ?>" class="fromWrapper" value="<?php echo $result['option_3'] ?>#<?php echo $result['id'] ?>"> 
+                        <label for="optionsThree_<?php echo $result['id'] ?>" class="fromWrapper" id="questionsLable"><?php echo $result['option_3'] ?></label>
                     </div>
                     <div>
-                        <input type="radio" name="option_<?php echo $result['id'] ?>" id="optionsFour_<?php echo $result['id'] ?>" class="fromWrapper" value="<?php echo $result['optionFour'] ?>#<?php echo $result['id'] ?>"> 
-                        <label for="optionsFour_<?php echo $result['id'] ?>" class="fromWrapper" id="questionsLable"><?php echo $result['optionFour'] ?></label>
+                        <input type="radio" name="option_<?php echo $result['id'] ?>" id="optionsFour_<?php echo $result['id'] ?>" class="fromWrapper" value="<?php echo $result['option_4'] ?>#<?php echo $result['id'] ?>"> 
+                        <label for="optionsFour_<?php echo $result['id'] ?>" class="fromWrapper" id="questionsLable"><?php echo $result['option_4'] ?></label>
                     </div>
                 
                 </div>
