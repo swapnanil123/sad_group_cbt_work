@@ -121,7 +121,7 @@
                 sec = '00'
                 console.log("Time Up")
 
-                FormSubmit();
+                // FormSubmit();
             }else if (min == 0) {
                 $('#timer').addClass('blinking')
             }
