@@ -39,6 +39,7 @@
                             <option value="Chemistry">Chemistry</option>
                             <option value="Bengali">Bengali</option>
                             <option value="History">History</option>
+                            <option value="English">English</option>
                         </select>
                     </div>
                     <div class="form-group">

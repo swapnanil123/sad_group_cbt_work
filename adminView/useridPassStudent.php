@@ -8,7 +8,9 @@
         <meta name="author" content="" />
         <title>User ID & Password</title>
         <link href="styles.css" rel="stylesheet" />
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -114,27 +116,30 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Login Details for Students</h1>
+                        <h3 class="mt-4">Login Details for Students</h3>
                         <div class="row">
                         	<div id="layoutAuthentication">
 					            <div id="layoutAuthentication_content">
 					                <main>
-					                    <div class="m-4">
+					                    <div class="my-4 mx-1">
                                             <table class="table table-striped text-center">
                                             <thead style="background: rgba(0,0,0,0.4); color:#fff; font-family: arial; font-size: 15px">
                                             <tr>
-                                                <th scope="col" >Student ID</th>
+                                                <th scope="col" >ID</th>
                                                 <th scope="col" >Name</th>
+                                                <th scope="col" >Roll</th>
                                                 <th scope="col" >User ID</th>
-                                                <th scope="col" >Password</th>
                                             </tr>
                                             </thead>
                                             <tbody id="tableBody">
-                                            <tr>
-                                                <th scope="row" class="text-center">1325698</th>
-                                                <td class="">Mark Jonas</td>
-                                                <td class="" >132</td>
-                                                <td class="" >#$$^#$@@#$</td>
+
+                                                <!-- <tr>
+                                                    <th scope="row" class="text-center">1325698</th>
+                                                    <td class="">Mark Jonas</td>
+                                                    <td class="" >132</td>
+                                                    <td class="" >#$$^#$@@#$</td>
+                                                </tr> -->
+
                                             </tbody>
                                             </table>
                                         </div>
@@ -162,3 +167,31 @@
 		</div>
 	</body>
 </html>
+
+
+
+<script>
+
+    url = $(location).attr('href');
+    // console.log(url)
+    splitUrl = url.split('/')
+    examCode= splitUrl[splitUrl.length - 1]
+    console.log(examCode)
+
+
+    $.ajax({
+        url: "getStdUserDetails.php",
+        type: "POST",
+        data: {
+            "examCode": examCode,
+        },
+        success: function(data) {
+            console.log(data)
+            $("#tableBody").append(data)
+        },
+        error: function(err) {
+            console.log(err)
+        }
+    })
+
+</script>

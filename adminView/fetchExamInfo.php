@@ -2,6 +2,7 @@
 
 include_once("db_connect.php");
 
+
 $q = 'select * from examcreatedetails';
 
 $query = mysqli_query($con, $q);
@@ -11,7 +12,7 @@ if ( $allQuestions > 0) {
 
     while($result = mysqli_fetch_array($query)) {
 
-        $qrr = "SELECT DISTINCT stdRoll from examanswer WHERE exam_code = '".$result['exam_serial_no']."'";
+        $qrr = "SELECT * from studentlogindata WHERE exam_serial_no = '".$result['exam_serial_no']."'";
         $sql = mysqli_query($con, $qrr);
         $totalStd = mysqli_num_rows($sql);
         $res = mysqli_fetch_array($sql);
