@@ -6,8 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Exam List</title>
+        <title>Student Menu</title>
         <link href="styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
     </head>
@@ -114,49 +116,18 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Exam List</h1>
+                        <h3 class="mt-4">Student Menu</h3>
                         <div class="row">
                         	<div id="layoutAuthentication">
 					            <div id="layoutAuthentication_content">
 					                <main>
-					                    <div class="m-4">
-                                            <table class="table table-striped text-center">
-                                            <thead style="background: rgba(0,0,0,0.4); color:#fff; font-family: arial; font-size: 15px">
-                                            <tr>
-                                                <th scope="col">Exam ID</th>
-                                                <th scope="col">Subject</th>
-                                                <th scope="col">Course</th>
-                                                <th scope="col">Total Students</th>
-                                                <th scope="col"></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody id="tableBody">
-                                            <tr>
-                                                <th scope="row" class="text-center">1325698</th>
-                                                <td class="">Mark Jonas</td>
-                                                <td class="">132</td>
-                                                <td class="">#$$^#$@@#$</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-warning btn-sm shadow-none">View</button>
-                                                </td>
-                                            </tbody>
-                                            </table>
-                                        </div>
+                                        <!-- <form style="width: 100%;padding: 0 20px"> -->
+                                            <div class="d-grid gap-4 col-6 mx-auto m-5 ">
+                                                <button class="btn btn-warning " type="button" id="stdDetails" value="Exam-wise Student Details">Exam-wise Student Details</button>
+                                                <button class="btn btn-danger " type="button" id="stdUserID" value="Student User ID & Password">Student User ID & Password</button>
+                                            </div>
+                                        <!-- </form> -->
 					                </main>
-					            </div>
-					            <div id="layoutAuthentication_footer">
-					                <footer class="py-4 bg-light mt-auto">
-					                    <div class="container-fluid px-4">
-					                        <div class="d-flex align-items-center justify-content-between small">
-					                            <div class="text-muted">Copyright &copy; SAD</div>
-					                            <div>
-					                                <a href="#">Privacy Policy</a>
-					                                &middot;
-					                                <a href="#">Terms &amp; Conditions</a>
-					                            </div>
-					                        </div>
-					                    </div>
-					                </footer>
 					            </div>
 					        </div>
 					    </div>
@@ -166,3 +137,16 @@
 		</div>
 	</body>
 </html>
+
+
+<script>
+
+$("#stdDetails").on("click", function() {
+    window.location.href = "examListForStudent.php?"+ "/StdDetails" ;
+})
+$("#stdUserID").on("click", function() {
+    window.location.href = "examListForStudent.php?"+ "/StdUserID" ;
+})
+
+
+</script>

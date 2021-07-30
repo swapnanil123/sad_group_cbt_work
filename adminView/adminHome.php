@@ -7,6 +7,8 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Admin Panel</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -114,7 +116,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4 pb-4">Dashboard</h1>
+                        <h3 class="mt-4 pb-4">Dashboard</h3>
                         <!-- <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol> -->
@@ -132,7 +134,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Students</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#"></a>
+                                        <a class="small text-white stretched-link" href="studentPageMenu.php"></a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -141,7 +143,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Result</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#"></a>
+                                        <a class="small text-white stretched-link" href="examList.php"></a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -187,11 +189,11 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
+                                            <th>Exam Code</th>
                                             <th>Semester</th>
                                             <th>Department</th>
-                                            <th>Paper</th>
-                                            <th>Total</th>
-                                            <th>Date</th>
+                                            <th>Paper Code</th>
+                                            <th>Total Question</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -205,27 +207,9 @@
                                             <th>Status</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Semester 5</td>
-                                            <td>Computer Science</td>
-                                            <td>CC-H104-P03</td>
-                                            <td>20</td>
-                                            <td>24/05/2021</td>
-                                            <td>
-                                                <span class="badge bg-success">Running</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Semester 1</td>
-                                            <td>Computer Science</td>
-                                            <td>CC-H104-P01</td>
-                                            <td>25</td>
-                                            <td>24/05/2021</td>
-                                            <td>
-                                                <span class="badge bg-danger">Finished</span>
-                                            </td>
-                                        </tr>
+                                    <tbody id="tBody">
+                                        
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -255,3 +239,71 @@
         <script src="js/datatables-simple-demo.js"></script>
     </body>
 </html>
+
+
+
+
+<script>
+
+    $(document).ready(function() {
+        arr =[]
+
+        $.ajax({
+            url: "getDashBoardTableData.php",
+            type: "POST",
+            success: function(data) {
+                console.log(data)
+                $("#tBody").append(data)
+
+                x = document.querySelectorAll(".examCodeID")
+                for (i = 0; i < x.length; i++) {
+                    tex = x[i].innerHTML; 
+                    arr.push(tex)
+                }
+                
+                // console.log(arr)
+
+                for (i=0; i<arr.length; i++) {
+
+
+                    $.ajax({
+
+                        url: "checkOnginExam.php",
+                        method: "POSt",
+                        data: {
+                            "code": arr[i].replace(" ", ""),
+                        },
+                        success: function(data) {
+                            console.log(data)
+
+                            
+                            if (data != "error") {
+                                // var obj = $.parseJSON(data);
+                            
+                                // console.log(obj)
+                                // tr = $("#exStatus_"+data).text()
+                                // console.log(tr)
+                                $("#exStatus_"+data).text("Running")
+                                $("#exStatus_"+data).addClass('bg-success')
+                                $("#exStatus_"+data).removeClass('bg-danger')
+                            }
+                            
+                            
+                        },
+                        error: function(err) {
+                            console.log(err)
+                        }
+                    }) 
+
+                }
+
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
+    })
+
+
+
+</script>

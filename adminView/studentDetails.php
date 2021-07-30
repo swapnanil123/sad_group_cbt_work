@@ -10,6 +10,8 @@
         <link href="styles.css" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -114,12 +116,12 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Student Details</h1>
+                        <h3 class="mt-4">Student Details</h3>
                         <div class="row">
                         	<div id="layoutAuthentication">
 					            <div id="layoutAuthentication_content">
 					                <main>
-					                    <div class="m-4">
+					                    <div class="mx-1 my-4">
                                             <table class="table table-striped text-center">
                                             <thead style="background: rgba(0,0,0,0.4); color:#fff; font-family: arial; font-size: 15px">
                                             <tr>
@@ -133,15 +135,15 @@
                                             </tr>
                                             </thead>
                                             <tbody id="tableBody">
-                                            <tr>
-                                                <th scope="row" class="text-center">123456</th>
-                                                <td class="">Mark Jonas</td>
-                                                <td class="" >132</td>
-                                                <td class="" >ComputerScience</td>
-                                                <td class="" >Core Course (CC)</td>
-                                                <td class="" >2</td>
-                                                <td class="">2018-2019</td>
-                                            </tr>
+                                                <!-- <tr>
+                                                    <th scope="row" class="text-center">123456</th>
+                                                    <td class="">Mark Jonas</td>
+                                                    <td class="" >132</td>
+                                                    <td class="" >ComputerScience</td>
+                                                    <td class="" >Core Course (CC)</td>
+                                                    <td class="" >2</td>
+                                                    <td class="">2018-2019</td>
+                                                </tr> -->
                                             </tbody>
                                             </table>
                                         </div>
@@ -169,3 +171,30 @@
 		</div>
 	</body>
 </html>
+
+
+<script>
+
+    url = $(location).attr('href');
+    // console.log(url)
+    splitUrl = url.split('/')
+    examCode= splitUrl[splitUrl.length - 1]
+    console.log(examCode)
+
+
+    $.ajax({
+        url: "getStdPersonalDetails.php",
+        type: "POST",
+        data: {
+            "examCode": examCode,
+        },
+        success: function(data) {
+            console.log(data)
+            $("#tableBody").append(data)
+        },
+        error: function(err) {
+            console.log(err)
+        }
+    })
+
+</script>
