@@ -31,15 +31,8 @@
                     <div class="form-group">
                         <label>Department</label>
                         <!-- <input type="text" name="stddept" class="form-control shadow-none outline-none border-none" id="stdDept" placeholder=" " required> -->
-                        <select name="stddept" id="stdDept" class="form-control shadow-none outline-none border-none" required>
+                        <select name="stddept" id="stdDept" class="form-control shadow-none outline-none border-none" onchange="getSubject()" required>
                             <option value="" selected disabled>Selecte Semester </option>    
-                            <option value="Computer Science">Computer Science</option>
-                            <option value="Mathamatics">Mathamatics</option>
-                            <option value="Physics">Physics</option>
-                            <option value="Chemistry">Chemistry</option>
-                            <option value="Bengali">Bengali</option>
-                            <option value="History">History</option>
-                            <option value="English">English</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -50,20 +43,13 @@
                         <label >Course</label>
                         <select name="stdcourse" id="stdCourse" class="form-control shadow-none outline-none border-none" required>
                             <option value="" selected disabled>Selecte Course </option>
-                            <option value="Honours">Honours</option>
-                            <option value="General">General</option>
+
                         </select>
                     </div>
                     <div class="form-group">
                         <label >Semester</label>
                         <select name="stdsem" id="stdSem" class="form-control shadow-none outline-none border-none" required>
                             <option value="" selected disabled>Selecte Semester </option>    
-                            <option value="semester 1">Semester 1</option>
-                            <option value="semester 2">Semester 2</option>
-                            <option value="semester 3">Semester 3</option>
-                            <option value="semester 4">Semester 4</option>
-                            <option value="semester 5">Semester 5</option>
-                            <option value="semester 6">Semester 6</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -83,6 +69,69 @@
 </html>
 
 <script>
+
+    $(document).ready(function() {
+
+        try {
+            $.ajax ({
+                url: "getDept.php",
+                type: "POST",
+                success: function(data) {
+                    console.log(data)
+                    if ( data != "error") {
+                        $("#stdDept").append(data)
+                    } else {
+                        $("#submitBtn").prop('disabled', true)
+                    }
+                },
+                error: function(err) {
+                    console.log(err)
+                }
+            })
+        } catch (error) {
+            console.log(error)
+        }
+        
+    })
+
+    function getSubject() {
+        subName = $("#stdDept").val()
+        console.log(subName)
+        
+        $.ajax ({
+            url: "getSemData.php",
+            type: "POST",
+            data: {
+                "subName": subName,
+            },
+            success: function(data) {
+                console.log(data)
+                
+                $("#stdSem").append(data)
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
+
+        $.ajax ({
+            url: "getCourseData.php",
+            type: "POST",
+            data: {
+                "subName": subName,
+            },
+            success: function(data) {
+                console.log(data)
+                
+                $("#stdCourse").append(data)
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
+
+    }
+
 
     $("#stdRegForm").on("submit",function(e) {    
         e.preventDefault()
