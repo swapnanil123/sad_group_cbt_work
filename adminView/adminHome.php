@@ -208,16 +208,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody id="tBody">
-                                        <!-- <tr>
-                                            <td>Semester 5</td>
-                                            <td>Computer Science</td>
-                                            <td>CC-H104-P03</td>
-                                            <td>20</td>
-                                            <td>24/05/2021</td>
-                                            <td>
-                                                <span class="badge bg-success">Running</span>
-                                            </td>
-                                        </tr> -->
+                                        
                                         
                                     </tbody>
                                 </table>
