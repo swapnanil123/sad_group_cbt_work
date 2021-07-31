@@ -12,7 +12,7 @@ $session = $_POST['session'];
 
 // $query = mysqli_query($con, $sql);
 
-$q = "select exam_serial_no  from examcreatedetails where sem_name = '".$sem."' ";
+$q = "select exam_serial_no  from examcreatedetails where sem_name = '".$sem."' and course = '".$course."' ";
 $query = mysqli_query($con, $q);
 $allQuestions = mysqli_num_rows($query);
 $result = mysqli_fetch_array($query);

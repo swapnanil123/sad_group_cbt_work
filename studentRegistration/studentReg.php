@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script> -->
     <link rel="stylesheet" href="studentReg.css">
 </head>
 <body>
@@ -40,18 +40,19 @@
                         <input type="text" name="stdroll" class="form-control shadow-none outline-none border-none" id="stdRoll" placeholder=" " required>
                     </div>
                     <div class="form-group">
-                        <label >Course</label>
-                        <select name="stdcourse" id="stdCourse" class="form-control shadow-none outline-none border-none" required>
-                            <option value="" selected disabled>Selecte Course </option>
-
+                        <label >Semester</label>
+                        <select name="stdsem" id="stdSem" class="form-control shadow-none outline-none border-none" onchange="getSem()" required>
+                            <option value="" id="defaultSem" selected >Selecte Semester </option>    
                         </select>
                     </div>
                     <div class="form-group">
-                        <label >Semester</label>
-                        <select name="stdsem" id="stdSem" class="form-control shadow-none outline-none border-none" required>
-                            <option value="" selected disabled>Selecte Semester </option>    
+                        <label >Course</label>
+                        <select name="stdcourse" id="stdCourse" class="form-control shadow-none outline-none border-none" required>
+                            <option  value="" selected>Selecte Course </option>
+
                         </select>
                     </div>
+                    
                     <div class="form-group">
                         <label>Session</label>
                         <input type="text" name="stdses" class="form-control shadow-none outline-none border-none" id="stdSes" placeholder=" " required>
@@ -75,14 +76,18 @@
         try {
             $.ajax ({
                 url: "getDept.php",
-                type: "POST",
                 success: function(data) {
-                    console.log(data)
+
+                    // console.log(data)
                     if ( data != "error") {
+                        
                         $("#stdDept").append(data)
                     } else {
                         $("#submitBtn").prop('disabled', true)
                     }
+                    // detp = jQuery.parseJSON(data)
+                    // console.log(dept)
+                    
                 },
                 error: function(err) {
                     console.log(err)
@@ -94,9 +99,21 @@
         
     })
 
+    var subject;
+
     function getSubject() {
+
+        // $(".option").each(function() {
+        //     $(this).remove();
+        // });
+
         subName = $("#stdDept").val()
-        console.log(subName)
+        // console.log(subName)
+
+        subject = subName
+        
+        
+        $("#stdSem").text("")
         
         $.ajax ({
             url: "getSemData.php",
@@ -105,32 +122,64 @@
                 "subName": subName,
             },
             success: function(data) {
-                console.log(data)
-                
-                $("#stdSem").append(data)
+                // console.log(data)
+                if (data != "error") {
+                    // defaultSem = $("#defaultSem").text()
+                    // $("#stdSem").text(defaultSem)
+                    
+                    $("#stdSem").append('<option value="" selected disabled>Select Semester</option>')
+                    $("#stdSem").append(data)
+                }
             },
             error: function(err) {
                 console.log(err)
             }
+
         })
+
+        // $.ajax ({
+        //     url: "getCourseData.php",
+        //     type: "POST",
+        //     data: {
+        //         "subName": subName,
+        //     },
+        //     success: function(data) {
+        //         // console.log(data)
+                
+        //         $("#stdCourse").append(data)
+        //     },
+        //     error: function(err) {
+        //         console.log(err)
+        //     }
+        // })
+
+    }
+
+    function getSem() {
+        semName = $("#stdSem").val()
+        console.log(semName, subject)
+
+        $("#stdCourse").text(" ")
 
         $.ajax ({
             url: "getCourseData.php",
             type: "POST",
             data: {
                 "subName": subName,
+                "semName": semName,
             },
             success: function(data) {
-                console.log(data)
-                
+                // console.log(data)
+                $("#stdCourse").append('<option value="" selected disabled>Select Courese</option>')
                 $("#stdCourse").append(data)
             },
             error: function(err) {
                 console.log(err)
             }
         })
-
     }
+
+
 
 
     $("#stdRegForm").on("submit",function(e) {    

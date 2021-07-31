@@ -4,7 +4,7 @@ include_once("db_connect.php");
 
 $subName = $_POST['subName'];
 
-$q = "select * from examcreatedetails where subject_name = '".$subName."' ";
+$q = "SELECT DISTINCT sem_name FROM examcreatedetails WHERE subject_name = '".$subName."' ";
 $query = mysqli_query($con, $q);
 $totalRow = mysqli_num_rows($query);
 
@@ -14,7 +14,7 @@ if ($totalRow > 0) {
         while($result = mysqli_fetch_row($query)) {
     ?>
 
-            <option value="<?php echo $result[2] ?>"> <?php echo $result[2] ?> </option>    
+            <option value="<?php echo $result[0] ?>"> <?php echo $result[0] ?> </option>    
         
     <?php
         }
