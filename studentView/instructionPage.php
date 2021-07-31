@@ -97,6 +97,7 @@
                         stdInfo = jQuery.parseJSON(data)
                         console.log(stdInfo)
                         subjectName = stdInfo["dept"].replace(" ", "#")
+                        console.log(stdInfo["dept"])
                         window.location.href = "studentMainView.php?"+ "/"  + stdInfo["exam_code"] + "/" + stdInfo["name"] + "/" + subjectName + "/" +roll ;
                         $('input[type="checkbox"]').prop('checked', false);                        
                     },

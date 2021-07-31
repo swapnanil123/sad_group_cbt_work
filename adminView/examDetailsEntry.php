@@ -249,6 +249,8 @@
                         window.location.href = "questionEntry.php?"+ "/" +subjectName + "/" + semName + "/" + paperCode ;
 
 
+                    }else if(data == "DataFound") {
+                        alert("Exam Already Created")
                     }else {
                         alert("Exam Create Unsuccessfull")
                     }

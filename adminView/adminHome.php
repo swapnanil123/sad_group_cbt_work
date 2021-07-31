@@ -197,7 +197,7 @@
                                             <th>Status</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
+                                    <!-- <tfoot>
                                         <tr>
                                             <th>Semester</th>
                                             <th>Department</th>
@@ -206,8 +206,8 @@
                                             <th>Date</th>
                                             <th>Status</th>
                                         </tr>
-                                    </tfoot>
-                                    <tbody id="tBody">
+                                    </tfoot> -->
+                                    <tbody id="tBodyTable">
                                         
                                         
                                     </tbody>
@@ -253,7 +253,7 @@
             type: "POST",
             success: function(data) {
                 console.log(data)
-                $("#tBody").append(data)
+                $("#tBodyTable").append(data)
 
                 x = document.querySelectorAll(".examCodeID")
                 for (i = 0; i < x.length; i++) {
