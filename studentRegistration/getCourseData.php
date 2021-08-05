@@ -3,8 +3,9 @@
 include_once("db_connect.php");
 
 $subName = $_POST['subName'];
+$semName = $_POST['semName'];
 
-$q = "select * from examcreatedetails where subject_name = '".$subName."' ";
+$q = "select * from examcreatedetails where subject_name = '".$subName."' and sem_name = '".$semName."' ";
 $query = mysqli_query($con, $q);
 $totalRow = mysqli_num_rows($query);
 
