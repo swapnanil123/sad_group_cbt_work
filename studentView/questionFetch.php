@@ -11,6 +11,8 @@ $query = mysqli_query($con, $q);
 $allQuestions = mysqli_num_rows($query);
 
 
+
+
 if ( $allQuestions > 0) {
 
     for($i=1; $i<= $allQuestions; $i++) {
