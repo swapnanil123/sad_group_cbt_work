@@ -70,16 +70,18 @@
 <script>
 
     // var pass = document.getElementsByName('option')
-
+    
     $(document).ready(function() {
         // var form = $('#questionForm')
+        let ExTime = 0;
 
         url = $(location).attr('href');
         console.log(url)
         splitUrl = url.split('/')
-        exam_code= splitUrl[splitUrl.length - 4]
+        exam_code= splitUrl[splitUrl.length - 4].replace("#", " ")
         subjecName = splitUrl[splitUrl.length - 2].replace("#", " ")
-        console.log(exam_code)
+        exam_Time = splitUrl[splitUrl.length - 5].replace("#", " ")
+        console.log(exam_Time)
 
 
         $.ajax({
@@ -96,14 +98,13 @@
             }
         })
 
-
         // timmer function
 
         // timmerValueMin = $('#timerMin').text()
         // timmerValueSec = $('#timerSec').text()
         // console.log(timmerValueMin, timmerValueSec)
 
-        const totalTime = 2
+        const totalTime = exam_Time
         let time = totalTime * 60
 
         const countDownEl = document.getElementById('timer');
@@ -121,7 +122,7 @@
                 sec = '00'
                 console.log("Time Up")
 
-                // FormSubmit();
+                FormSubmit();
             }else if (min == 0) {
                 $('#timer').addClass('blinking')
             }
@@ -147,8 +148,8 @@
     console.log(url)
     splitUrl = url.split('/')
     roll = splitUrl[splitUrl.length - 1]
-    dept = splitUrl[splitUrl.length - 2].replace("%20", " ")
-    name = splitUrl[splitUrl.length - 3].replace("%20", " ")
+    dept = splitUrl[splitUrl.length - 2].replace("#", " ")
+    name = splitUrl[splitUrl.length - 3].replace("#", " ")
     
     console.log(dept, name)
 
